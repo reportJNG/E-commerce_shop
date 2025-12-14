@@ -1,7 +1,8 @@
 'use client'
 import styles from './Textchange.module.css';
 import { useEffect, useState } from 'react';
-  const shopPhrases: string[] = [
+/* thhis here hamza for a component text to give call it by this*/
+const shopPhrases: string[] = [
     "Premium Quality, Handpicked for You",
     "Over 500+ Satisfied Customers Trust Our Collection",
     "Affordable Luxury — Stylish Looks Without Breaking the Bank",
@@ -15,7 +16,10 @@ import { useEffect, useState } from 'react';
     "Seasonal Trends Curated Just for You",
     "Join Our Loyalty Program & Enjoy Special Rewards"
   ];
-export default function Textchange() {
+  type txt={
+    t:string[]
+  }
+export default function Textchange({t}:txt) {
 
 
   const [text, setText] = useState('');
@@ -24,7 +28,7 @@ export default function Textchange() {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const current = shopPhrases[index];
+    const current = t[index];
 
     // speed typing
     const speed = deleting ? 40 : 80;
@@ -46,7 +50,7 @@ export default function Textchange() {
 
         if (subIndex === 0) {
           setDeleting(false);
-          setIndex((index + 1) % shopPhrases.length); // move next phrase
+          setIndex((index + 1) % t.length); // move next phrase
         }
       }
     }, speed);
