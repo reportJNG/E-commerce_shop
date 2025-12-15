@@ -78,14 +78,14 @@ export default function Bigscrollclothes() {
     if (length === 0 || isTransitioning) return;
     setIsTransitioning(true);
     setIndex(prev => (prev - 1 + length) % length);
-    setTimeout(() => setIsTransitioning(false), 500);
+    setTimeout(() => setIsTransitioning(false), 800);
   }
 
   const nextclick = () => {
     if (length === 0 || isTransitioning) return;
     setIsTransitioning(true);
     setIndex(prev => (prev + 1) % length);
-    setTimeout(() => setIsTransitioning(false), 500);
+    setTimeout(() => setIsTransitioning(false), 800);
   }
 
 

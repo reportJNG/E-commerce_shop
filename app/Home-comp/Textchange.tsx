@@ -1,66 +1,49 @@
 'use client'
 import styles from './Textchange.module.css';
 import { useEffect, useState } from 'react';
-/* thhis here hamza for a component text to give call it by this*/
-const shopPhrases: string[] = [
-    "Premium Quality, Handpicked for You",
-    "Over 500+ Satisfied Customers Trust Our Collection",
-    "Affordable Luxury — Stylish Looks Without Breaking the Bank",
-    "Eco-Friendly Materials for a Sustainable Wardrobe",
-    "Fast Shipping & Hassle-Free Returns",
-    "Limited Stock — Grab Your Favorite Pieces Before They’re Gone!",
-    "Exclusive Collections You Won’t Find Anywhere Else",
-    "Handcrafted Details for a Perfect Fit",
-    "Customer Favorites — Rated 5 Stars",
-    "Shop with Confidence — Secure Payments & Privacy Guaranteed",
-    "Seasonal Trends Curated Just for You",
-    "Join Our Loyalty Program & Enjoy Special Rewards"
-  ];
-  type txt={
-    t:string[]
-  }
-export default function Textchange({t}:txt) {
 
+type TextChangeProps = {
+  t: string[];
+}
 
+export default function Textchange({ t }: TextChangeProps) {
   const [text, setText] = useState('');
-  const [index, setIndex] = useState(0);       
-  const [subIndex, setSubIndex] = useState(0);  
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
     const current = t[index];
-
-    // speed typing
-    const speed = deleting ? 40 : 80;
+    const speed = deleting ? 30 : 70; // Slightly faster typing speeds
 
     const timeout = setTimeout(() => {
       if (!deleting) {
-        // typing forward
         setText(current.substring(0, subIndex + 1));
         setSubIndex(subIndex + 1);
 
-        if (subIndex === current.length) {
-          // pause full text then delete
-          setTimeout(() => setDeleting(true), 1500);
+        if (subIndex === current.length - 1) {
+          setTimeout(() => setDeleting(true), 1200);
         }
       } else {
-        // deleting backward
         setText(current.substring(0, subIndex - 1));
         setSubIndex(subIndex - 1);
 
         if (subIndex === 0) {
           setDeleting(false);
-          setIndex((index + 1) % t.length); // move next phrase
+          setIndex((index + 1) % t.length);
         }
       }
     }, speed);
 
     return () => clearTimeout(timeout);
-  }, [subIndex, deleting, index]);
+  }, [subIndex, deleting, index, t]);
 
   return (
     <div className={styles.container}>
-      <h3 className={styles.changedtext}>{text}</h3><p className={styles.curssor}></p> {/** here need the cursor allwys look like typing with this text with good animation */ }
+      <h3 className={styles.changedText}>
+        {text}
+        <span className={styles.cursor} />
+      </h3>
     </div>
   );
 }

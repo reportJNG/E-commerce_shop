@@ -13,14 +13,14 @@ type squareexpericenceporops={
 const incremeant=(sn:React.Dispatch<React.SetStateAction<number>>,much:number)=>{
         setTimeout(() => {
             sn(prev=>prev+much);
-        }, 5000);
+        }, 10000);
 }
 
 export default function Squareexpericence({text,setnum,num,comment,icon,howmuch}:squareexpericenceporops){
 
 useEffect(()=>{
    incremeant(setnum,howmuch) 
-},[])
+},[num,setnum,howmuch])
 
 
     return(

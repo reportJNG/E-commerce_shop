@@ -18,6 +18,7 @@ export default function Header(){
             <div className={styles.hrefslinksONcenter}>
             <i className="fi fi-rr-home" onClick={()=>routes.push('/')}/>
             <i className="fi fi-rr-shopping-cart" onClick={()=>routes.push('/Shop')}/>
+                <i className="fi fi-rr-paper-plane" onClick={()=>routes.push('/Feedback')}/>
             <i className="fi fi-rr-bell" onClick={()=>routes.push('/')}/>
             </div>
             <div className={styles.themetoright}>
