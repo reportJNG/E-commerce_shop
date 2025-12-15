@@ -13,7 +13,7 @@ export default function Header(){
     return(
         <div className={styles.container}>
             <div className={styles.logostuckleft}>
-            <Image src={''} alt='LogoOfEcomerce' width={60} height={60} className={styles.logophoto}/>
+            <Image src='/logo.png' alt='LogoOfEcomerce' width={60} height={60} className={styles.logophoto}/>
             </div>
             <div className={styles.hrefslinksONcenter}>
             <i className="fi fi-rr-home" onClick={()=>routes.push('/')}/>
@@ -21,8 +21,8 @@ export default function Header(){
             <i className="fi fi-rr-bell" onClick={()=>routes.push('/')}/>
             </div>
             <div className={styles.themetoright}>
-             <button className={theme==='dark'?"styles.btnthemeondark":"btnthemeonlight"} onClick={()=>setTheme(theme==='dark'? "light":"dark")}>
-            {theme==="light"? <i className="fi fi-rr-sun"/>:<i className="fi fi-rc-moon-stars"/>}</button>
+            <button className={styles.themeToggle} onClick={()=>setTheme(theme==='dark'? "light":"dark")}>
+                {theme==="light"? <i className="fi fi-rc-moon-stars"/>:<i className="fi fi-rr-sun"/>}</button>
             </div>
         </div>
     )

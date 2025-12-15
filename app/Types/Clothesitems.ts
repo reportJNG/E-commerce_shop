@@ -1,8 +1,12 @@
 export type Clothestype ={
-    name:string;
+    title:string;
     description:string;
+    price:number;
+    category:string;
     url:string;
-    cost:number;
+    rating:{
+        rate:number,count:number;
+    }
     disponible:boolean;
     livrison:boolean;
 };
