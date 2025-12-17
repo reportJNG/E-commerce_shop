@@ -84,6 +84,10 @@
 }
 
 .experiencedsquares {
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 10px;
   padding-bottom: 20px; 
   margin-bottom: 20px;   
   background-color: var(--bg);
@@ -125,5 +129,15 @@
     padding: 1rem;
   }
   
+  
+}
+.offer{
+  background-color: var(--bg);
+  
+  padding-top: 30;
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  padding-bottom: 40px; 
   
 }

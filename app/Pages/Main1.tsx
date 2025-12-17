@@ -8,8 +8,30 @@ import Header from "../Components/Header"
 import Textchange from "../Home-comp/Textchange";
 import Man from "../Home-comp/Man";
 import Squareexpericence from '../Home-comp/Squareexperience';
+import Bigoffer from '../Home-comp/Bigoffer';
 export default function Main1(){
 const Firsttext: string[] = [
+    "Premium Quality, Handpicked for You",
+    "Over 500+ Satisfied Customers Trust Our Collection",
+    "Affordable Luxury — Stylish Looks Without Breaking the Bank",
+    "Eco-Friendly Materials for a Sustainable Wardrobe",
+    "Fast Shipping & Hassle-Free Returns",
+    "Limited Stock — Grab Your Favorite Pieces Before They’re Gone!",
+    "Exclusive Collections You Won’t Find Anywhere Else",
+    "Handcrafted Details for a Perfect Fit",
+    "Customer Favorites — Rated 5 Stars",
+    "Shop with Confidence — Secure Payments & Privacy Guaranteed",
+    "Seasonal Trends Curated Just for You",
+    "Join Our Loyalty Program & Enjoy Special Rewards"
+  ];
+  const Secondtext: string[] = [
+  "Fast Delivery & Easy Returns",
+  "Premium Quality You Can Trust",
+  "Best Prices in the Market",
+  "Secure Payments & Happy Customers"
+];
+
+  const Thirdtext: string[] = [
     "Premium Quality, Handpicked for You",
     "Over 500+ Satisfied Customers Trust Our Collection",
     "Affordable Luxury — Stylish Looks Without Breaking the Bank",
@@ -115,7 +137,10 @@ const routes=useRouter();
         num={returningCustomers}
         howmuch={1}
       />
-            </div>
+      </div>
+      <Textchange t={Secondtext}/> {/**here only for few texts in array */}
+      <div className={styles.offer}><Bigoffer/></div>
+
         </div>
     )
 }

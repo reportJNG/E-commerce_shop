@@ -2,7 +2,7 @@ import styles from './offer.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-type Offerprops = {
+export type Offerprops = {
     title: string;
     description: string;
     link: string;

@@ -1,0 +1,582 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-straight/css/uicons-bold-straight.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css');
+
+/* Main container styling - using CSS variables */
+.container {
+  max-width: 100%;
+  
+  padding: 2rem;
+  background: var(--bg);
+  border-radius: 24px;
+  position: relative;
+  overflow: visible;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 2px solid var(--secondary);
+}
+
+/* Top section with timer and title - GIFT BOX STYLE */
+.tophandler {
+  position: relative;
+  margin-bottom: 3rem;
+  padding: 3rem 2rem;
+  background: linear-gradient(145deg, 
+    color-mix(in srgb, var(--bg) 100%, white 20%) 0%, 
+    color-mix(in srgb, var(--bg) 100%, black 5%) 100%);
+  border-radius: 20px;
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.08);
+  border: 3px solid var(--bg);
+  min-height: 180px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+
+/* Ribbon bow on the left side */
+.tophandler::after {
+  content: '';
+  position: absolute;
+  left: -25px;
+  top: -30px;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  border-radius: 14% 30% 14% 10;
+  transform: rotate(-45deg);
+  box-shadow: 
+    5px 5px 15px rgba(255, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+
+
+.titelaontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: slideIn 0.8s ease-out;
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* Title styling - GIFT BOX STYLE */
+.title {
+  font-size: 2.8rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #000000 0%, #333333 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.5px;
+  margin: 0;
+  position: relative;
+  padding: 1.5rem 3rem;
+  background-color: var(--bg);
+  border-radius: 15px;
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 0 0 2px rgba(0, 0, 0, 0.05),
+    0 0 0 4px color-mix(in srgb, var(--bg) 80%, white 20%);
+  border: 1px solid var(--secondary);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+}
+
+/* Gift icon on the left of title */
+.title::before {
+  content: '🎁';
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+  z-index: 1;
+  animation: giftFloat 3s ease-in-out infinite;
+}
+
+/* Gift icon on the right of title */
+.title::after {
+  content: '🎁';
+  position: absolute;
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2.5rem;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+  z-index: 1;
+  animation: giftFloat 3s ease-in-out infinite 0.5s;
+}
+
+@keyframes giftFloat {
+  0%, 100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-50%) rotate(10deg);
+  }
+}
+
+/* Timer styling */
+.minidowntimer {
+  background: linear-gradient(135deg, 
+    color-mix(in srgb, black 95%, transparent), 
+    color-mix(in srgb, black 90%, transparent));
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--secondary);
+  border-radius: 20px;
+  padding: 1.2rem 2.5rem;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 3;
+  min-width: 200px;
+  text-align: center;
+}
+
+.texttimer {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #ffffff;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 3px;
+  margin: 0;
+  animation: pulse 1.5s infinite alternate;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(255, 255, 255, 0.2);
+  font-family: 'Courier New', monospace;
+}
+
+/* Gift/reload button styling - NOW STICKED TO CONTAINER */
+.reloadbtn {
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  z-index: 20;
+  transform: translate(0, 0);
+}
+
+.realoding {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(135deg, #ff0000, #ff3333, #ff0000);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 15px 35px rgba(255, 0, 0, 0.5),
+    0 8px 15px rgba(255, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 0 0 3px rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  animation: giftButtonGlow 3s infinite alternate;
+}
+
+.realoding:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 20px 45px rgba(255, 0, 0, 0.7),
+    0 12px 20px rgba(255, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+/* Continuous rotation animation on hover */
+.realoding:hover i {
+  animation: infiniteRotate 1.5s linear infinite;
+}
+
+.realoding:hover .mininumbertopleft {
+  transform: scale(1.2) rotate(10deg);
+  background: #000000;
+  color: #ffffff;
+  box-shadow: 
+    0 6px 12px rgba(0, 0, 0, 0.5),
+    0 0 0 3px rgba(255, 255, 255, 0.9);
+}
+
+.realoding i {
+  font-size: 2.5rem;
+  color: #ffffff;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+/* Mini number STICKED to container - FIXED POSITION */
+.mininumbertopleft {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 900;
+  border: 3px solid #ffffff;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.4),
+    0 0 0 2px rgba(255, 255, 255, 0.7);
+  z-index: 4;
+  pointer-events: none;
+  text-decoration: none;
+}
+
+/* Offers grid layout */
+.rowoffers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 2rem 0;
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Hidden offer state */
+.hidden {
+  background: color-mix(in srgb, black 90%, transparent);
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--secondary);
+  transition: all 0.3s ease;
+}
+
+.hidden::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, 
+    transparent 30%, 
+    color-mix(in srgb, var(--secondary) 20%, transparent) 50%, 
+    transparent 70%);
+  animation: shimmer 3s infinite linear;
+  background-size: 200% 100%;
+}
+
+.hidden:hover {
+  border-color: #ff0000;
+  transform: translateY(-5px);
+  box-shadow: 
+    0 20px 40px rgba(255, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 0, 0, 0.1);
+}
+
+/* Eye button in hidden state */
+.btnturnon {
+  width: 80px;
+  height: 80px;
+  background: color-mix(in srgb, var(--bg) 95%, white 5%);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 10px 20px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 2;
+}
+
+.btnturnon:hover {
+  transform: scale(1.2);
+  background: var(--bg);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.4),
+    0 0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.btnturnon:hover i {
+  color: #ff0000;
+  transform: scale(1.2);
+}
+
+.btnturnon i {
+  font-size: 2rem;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    text-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.6),
+      0 0 10px rgba(255, 255, 255, 0.2);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1.02);
+    text-shadow: 
+      0 4px 8px rgba(0, 0, 0, 0.8),
+      0 0 15px rgba(255, 255, 255, 0.3);
+  }
+}
+
+@keyframes giftButtonGlow {
+  0% {
+    box-shadow: 
+      0 15px 35px rgba(255, 0, 0, 0.5),
+      0 8px 15px rgba(255, 0, 0, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      0 0 0 3px rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    box-shadow: 
+      0 20px 45px rgba(255, 0, 0, 0.7),
+      0 12px 20px rgba(255, 0, 0, 0.4),
+      0 0 25px rgba(255, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6),
+      0 0 0 3px rgba(255, 255, 255, 0.9);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* INFINITE ROTATION for refresh icon */
+@keyframes infiniteRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .container {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .rowoffers {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2.2rem;
+    padding: 1rem 2rem;
+  }
+  
+  .texttimer {
+    font-size: 1.8rem;
+  }
+  
+  .realoding {
+    width: 75px;
+    height: 75px;
+  }
+  
+  .realoding i {
+    font-size: 2rem;
+  }
+  
+  .mininumbertopleft {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .rowoffers {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .titelaontainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.8rem;
+    padding: 0.75rem 1.5rem;
+  }
+  
+  .title::before,
+  .title::after {
+    display: none;
+  }
+  
+  .texttimer {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+  
+  .realoding {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .realoding i {
+    font-size: 1.75rem;
+  }
+  
+  .mininumbertopleft {
+    width: 22px;
+    height: 22px;
+    font-size: 0.8rem;
+    top: 8px;
+    left: 8px;
+  }
+  
+  .tophandler::before {
+    height: 40px;
+    top: -12px;
+  }
+  
+  .tophandler::after,
+  .ribbonEndRight {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Theme-specific styles */
+/* Light theme - default, already using variables */
+:global([data-theme="light"]) .title::after,
+:global([data-theme="light"]) .title::before {
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.2));
+}
+
+:global([data-theme="light"]) .btnturnon i {
+  color: #000000;
+}
+
+/* Dark theme adjustments */
+:global([data-theme="dark"]) .title {
+  background: linear-gradient(135deg, #ffffff 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:global([data-theme="dark"]) .btnturnon i {
+  color: #ffffff;
+}
+
+:global([data-theme="dark"]) .emptyState {
+  color: var(--secondary);
+  background: color-mix(in srgb, var(--bg) 90%, black 10%);
+}
+
+:global([data-theme="dark"]) .btnturnon {
+  background: color-mix(in srgb, var(--bg) 90%, white 10%);
+}
+
+:global([data-theme="dark"]) .btnturnon:hover {
+  background: color-mix(in srgb, var(--bg) 100%, white 15%);
+}
+
+/* Loading state for button */
+.realoding:active {
+  transform: scale(0.95);
+  transition: transform 0.1s ease;
+}
+
+.realoding:active i {
+  animation: infiniteRotate 0.5s linear infinite;
+}
+
+/* Empty state */
+.emptyState {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 4rem;
+  background: color-mix(in srgb, var(--secondary) 20%, transparent);
+  border-radius: 20px;
+  color: #000000;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* When offer becomes visible */
+.rowoffers > div > div:not(.hidden) {
+  animation: revealOffer 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes revealOffer {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotateY(-90deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05) rotateY(-45deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+  }
+}

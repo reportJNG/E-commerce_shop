@@ -3,6 +3,7 @@
   width: 100%;
   aspect-ratio: 1 / 1;
   max-height: 560px;        
+  border-radius: 30px;
   overflow: hidden;
   background-color: var(--bg);
   transition: transform 0.28s cubic-bezier(.4,0,.2,1);
