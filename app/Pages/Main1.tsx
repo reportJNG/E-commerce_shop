@@ -139,8 +139,11 @@ const routes=useRouter();
       />
       </div>
       <Textchange t={Secondtext}/> {/**here only for few texts in array */}
-      <div className={styles.offer}><Bigoffer/></div>
+      <div className={styles.offer}><Bigoffer/></div> {/**handler all offers */}
 
+      <div> {/**handler all  products + packs */}
+      
+      </div>
         </div>
     )
 }

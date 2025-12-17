@@ -1,11 +1,11 @@
 import styles from './pack.module.css';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-type packsprops={
+export type packsprops={
     title:string;
     description:string;
     link:string;
-    price:string;
+    price:number;
 }
 export default function Packs({title,description,link,price}:packsprops){
 
@@ -21,7 +21,7 @@ export default function Packs({title,description,link,price}:packsprops){
 
                 <div className={styles.giftlooking}></div>{/* here with css we add this min pic container looking like gift*/}
             </div>
-            <p className={styles.description}>{description}</p><button className={styles.btn} onClick={()=>routes.push('/Shop')}>{price}</button> {/**make this in same line as the description + button */}
+            <p className={styles.description}>{description}</p><button className={styles.btn} onClick={()=>routes.push('/Shop')}>{`$${price}`}</button> {/**make this in same line as the description + button */}
 
         </div>
     )
