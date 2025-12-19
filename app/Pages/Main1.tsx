@@ -8,6 +8,7 @@ import Header from "../Components/Header"
 import Textchange from "../Home-comp/Textchange";
 import Man from "../Home-comp/Man";
 import Squareexpericence from '../Home-comp/Squareexperience';
+import Itemshandler from '../Home-comp/Itemshandler';
 import Bigoffer from '../Home-comp/Bigoffer';
 export default function Main1(){
 const Firsttext: string[] = [
@@ -142,7 +143,7 @@ const routes=useRouter();
       <div className={styles.offer}><Bigoffer/></div> {/**handler all offers */}
 
       <div> {/**handler all  products + packs */}
-      
+      <Itemshandler/>
       </div>
         </div>
     )

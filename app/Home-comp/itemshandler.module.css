@@ -1,0 +1,273 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-bold-rounded/css/uicons-bold-rounded.css');
+/* itemshandler.module.css */
+
+.container {
+  padding: 2rem 1rem;
+  background-color: var(--bg);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.buttontopout {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.title {
+  color: var(--primary);
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: var(--primary);
+  border-radius: 2px;
+}
+
+.square {
+  background-color: var(--bg);
+  border: 2px solid var(--secondary);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.square:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.packhandler {
+  margin-bottom: 3rem;
+}
+
+.titlepack {
+  color: var(--primary);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--secondary);
+}
+
+.itemspacks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.packforeach {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.packforeach:hover {
+  transform: translateY(-8px);
+}
+
+.fullprice {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  z-index: 20;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.packforeach:hover .fullprice {
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
+}
+
+.txttopright {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ef4444;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.txt {
+  margin: 0;
+}
+
+.producthandler {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.buttondownout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--secondary);
+}
+
+.btnv {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.btnv:hover {
+  background-color: #2563eb;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+}
+
+.btnv:active {
+  transform: translateY(0) scale(1);
+}
+
+.btnv i {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.btnv:hover i {
+  transform: translateY(2px);
+}
+
+.goshopbtn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.875rem 2.5rem;
+  border-radius: 12px;
+  font-size: 1.125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.goshopbtn:hover {
+  background-color: #2563eb;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+  letter-spacing: 1px;
+}
+
+.goshopbtn:active {
+  transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .square {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+  
+  .itemspacks {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .producthandler {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .buttondownout {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .btnv {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .goshopbtn {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .titlepack {
+    font-size: 1.5rem;
+  }
+  
+  .producthandler {
+    grid-template-columns: 1fr;
+  }
+  
+  .square {
+    padding: 1rem;
+  }
+}
