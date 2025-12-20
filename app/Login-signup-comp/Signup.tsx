@@ -79,7 +79,7 @@ const [datauser,setDatauser]=useState<User>({name:'',secondname:'',profilename:'
                         <option id="contry" key={i}>{val.toUpperCase()}</option>
                 ))}
                 </select>
-                <div className={styles.passwordstats}><p>Strong:</p> <div className={`styles.line${getprogress(counter)}`}></div>{/**here this line should show the line css styles if less is red then blue then green there is from 0% to 30% to 60% to 100%*/}</div>
+                <div className={styles.passwordstats}><p>Strong:</p> <div className={`${styles.line} ${styles[`line${getprogress(counter).replace('%', '')}`]}`}></div>{/**here this line should show the line css styles if less is red then blue then green there is from 0% to 30% to 60% to 100%*/}</div>
                 <input type="password" name="Password" id="Password" minLength={8} maxLength={16} onChange={(e)=>setFirst(e.target.value)} required/>
                 <div className={styles.passowrdnomatch}>{first!==confirme&&disabledbtn &&( <p className={styles.redtext}>Password Doesnt Match</p> )}</div>
                 <input type="password" name="con-Password" id="con-Password" minLength={8} maxLength={16} onChange={(e)=>setComfirme(e.target.value)} required/>
