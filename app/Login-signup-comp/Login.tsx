@@ -15,8 +15,9 @@ const redirect=()=>{
     const timer = setInterval(() => {
             setLoading(false);
             setShowms(false);
+            routes.push('/Home')
     }, (4000));
-    routes.push('/Home')
+
     return ()=> clearInterval(timer);
 }
     return(
