@@ -41,6 +41,7 @@ export default function Packs({ title, description, link, price }: PacksProps) {
           className={styles.btn} 
           onClick={handleClick}
           aria-label={`Buy ${title} package for $${price}`}
+          disabled={true}
         >
           {`$${price}`}
         </button>

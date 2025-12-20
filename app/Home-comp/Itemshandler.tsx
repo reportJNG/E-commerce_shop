@@ -3,10 +3,12 @@ import { useState } from 'react';
 import Packs, { PacksProps } from './Packs';
 import Squareproduct, { ProductPropsType } from './Sqaureproduct';
 import { useRouter } from 'next/navigation';
+
 export default function Itemshandler() {
-  const [index, setIndex] = useState<number>(3);
-  const [cartItems, setCartItems] = useState<number[]>([]); // Track which items are in cart
-  const routes=useRouter();
+  const [index, setIndex] = useState<number>(4);
+  const [cartItems, setCartItems] = useState<number[]>([]);
+  const routes = useRouter();
+
   const packsItem: PacksProps[] = [
     {
       title: 'Starter Pack',
@@ -28,8 +30,6 @@ export default function Itemshandler() {
     },
   ];
 
-
-
   const carthandler = (productId: number) => {
     setCartItems(prev => {
       if (prev.includes(productId)) {
@@ -44,7 +44,7 @@ export default function Itemshandler() {
     {
       url: "/images/product1.jpg",
       name: "Leather Jacket",
-      price: 120,
+      price: 50,
       isincart: cartItems.includes(1),
       togglecart: () => carthandler(1),
     },
@@ -58,69 +58,95 @@ export default function Itemshandler() {
     {
       url: "/images/product3.jpg",
       name: "Jeans",
-      price: 60,
+      price: 90,
       isincart: cartItems.includes(3),
       togglecart: () => carthandler(3),
     },
     {
       url: "/images/product4.jpg",
       name: "T-Shirt",
-      price: 25,
+      price: 35,
       isincart: cartItems.includes(4),
       togglecart: () => carthandler(4),
     },
     {
       url: "/images/product5.jpg",
       name: "Hat",
-      price: 15,
+      price: 10,
       isincart: cartItems.includes(5),
       togglecart: () => carthandler(5),
     },
     {
       url: "/images/product6.jpg",
       name: "Sunglasses",
-      price: 50,
+      price: 25,
       isincart: cartItems.includes(6),
       togglecart: () => carthandler(6),
+    },
+    {
+      url: "/images/product7.jpg",
+      name: "Watch",
+      price: 20,
+      isincart: cartItems.includes(7),
+      togglecart: () => carthandler(7),
+    },
+    {
+      url: "/images/product8.jpg",
+      name: "Backpack",
+      price: 40,
+      isincart: cartItems.includes(8),
+      togglecart: () => carthandler(8),
     },
   ];
 
   const viewhandler = () => {
-    setIndex(prev => prev === 3 ? 6 : 3);
+    setIndex(prev => prev === 4 ? 8 : 4);
   };
+
 
   return (
     <div className={styles.container}>
-      <div className={styles.buttontopout}>
-        <h2 className={styles.title}>Shopping</h2>
-      </div>
-      
-      <div className={styles.square}>
-        <div className={styles.packhandler}>
-          <h3 className={styles.titlepack}>Pack Offer</h3>
-          <div className={styles.itemspacks}>
-            {packsItem.map((val, i) => (
-              <div key={i} className={styles.packforeach}>
-                <Packs 
-                  title={val.title} 
-                  description={val.description} 
-                  link={val.link} 
-                  price={val.price} 
-                />
-                <div className={styles.fullprice}>
-                  $95.99
-                  <div className={styles.txttopright}>
-                    <p className={styles.txt}>%45</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      {/* Pack Section - Looks like an actual package */}
+      <div className={styles.packhandler}>
+        <h3 className={styles.titlepack}>Premium Bundles</h3>
+        
+        {/* 45% Discount Badge - Top Right */}
+        <div className={styles.discountBadge}>
+          <p className={styles.discountText}>45%</p>
+          <p className={styles.discountLabel}>OFF</p>
         </div>
         
-        <div className={styles.producthandler}>
+        <div className={styles.itemspacks}>
+          {packsItem.map((val, i) => (
+            <div key={i} className={styles.packforeach}>
+              <Packs 
+                title={val.title} 
+                description={val.description} 
+                link={val.link} 
+                price={val.price} 
+              />                
+            </div>
+          ))}
+        </div>
+        
+        {/* Buy Pack Button - Bottom Right */}
+        <button 
+          className={styles.packhandlerbtn}
+          onClick={()=>routes.push('/Subscribe')}
+        >
+          Get Premium Bundle
+        </button>
+      </div>
+      
+      
+      <div className={styles.producthandler}>
+        <div className={styles.productsHeader}>
+          <h2 className={styles.productsTitle}>Featured Products</h2>
+        </div>
+        
+        <div className={styles.productsGrid}>
           {productsitems.slice(0, index).map((val, i) => (
-            <div key={i}>
+            <div key={i} className={styles.productCard}>
               <Squareproduct 
                 url={val.url} 
                 name={val.name} 
@@ -133,24 +159,26 @@ export default function Itemshandler() {
         </div>
       </div>
       
+      {/* Bottom Action Buttons */}
       <div className={styles.buttondownout}>
         <button 
           className={styles.btnv} 
           onClick={viewhandler}
-          aria-label={index === 3 ? "Show more products" : "Show less products"}
+          aria-label={index === 4 ? "Show more products" : "Show less products"}
         >
-          {index === 3 ? 
+          {index === 4 ? 
             <i className="fi fi-br-angle-double-small-down"></i> : 
             <i className="fi fi-br-angle-double-small-up"></i>
           }
         </button>
         
-        {index === 6 && (
+        {index === 8 && (
           <button 
             className={styles.goshopbtn}
             onClick={() => routes.push('/Shop')}
           >
-            Shop Now
+            <i className="fi fi-br-shopping-cart"></i>
+            Explore All Products
           </button>
         )}
       </div>

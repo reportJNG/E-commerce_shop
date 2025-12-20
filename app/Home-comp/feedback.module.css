@@ -1,0 +1,423 @@
+/* feedback.module.css */
+
+/* Enhanced Container */
+.container {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 1400px;
+  margin: 3rem auto;
+  position: relative;
+}
+
+
+/* Enhanced Title */
+.title {
+  text-align: center;
+  padding: 32px 40px;
+  background: linear-gradient(135deg, var(--primary) 0%, rgba(59, 130, 246, 0.15) 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shine 3s infinite ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+.txt {
+  margin: 0;
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--primary);
+  letter-spacing: -0.02em;
+  position: relative;
+  display: inline-block;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.txt::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 4px;
+  background: var(--secondary);
+  border-radius: 4px;
+  opacity: 0.5;
+}
+
+/* Grid Layout Enhancement */
+.upper, .lower {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 320px;
+  position: relative;
+}
+
+/* Grid Items */
+.first, .second, .third, .fourth {
+  padding: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+}
+
+/* Smart Borders */
+.first {
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.second {
+  border-bottom: 1px solid var(--border);
+}
+
+.third {
+  border-right: 1px solid var(--border);
+}
+
+
+
+/* Enhanced Hover Effects */
+.first:hover,
+.second:hover,
+.third:hover,
+.fourth:hover {
+  background: rgba(217, 228, 12, 0.03);
+  transform: translateY(-4px);
+  z-index: 3;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.first:hover {
+  border-right-color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.second:hover {
+  border-bottom-color: var(--primary);
+}
+
+.third:hover {
+  border-right-color: var(--primary);
+}
+
+/* Review Cycle Indicator */
+.cycleIndicator {
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 4;
+}
+
+.indicatorDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.indicatorDot.active {
+  background: var(--primary);
+  transform: scale(1.2);
+  box-shadow: 0 0 8px var(--primary);
+}
+
+.indicatorDot:hover {
+  background: var(--primary);
+  transform: scale(1.1);
+}
+
+/* Enhanced Loading Animation */
+.first, .second, .third, .fourth {
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.first { animation-delay: 0.1s; }
+.second { animation-delay: 0.2s; }
+.third { animation-delay: 0.3s; }
+.fourth { animation-delay: 0.4s; }
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse Animation for Active Cycle */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(59, 130, 246, 0);
+  }
+}
+
+.pulse {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Border Highlight Animation */
+.container::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 25px;
+  padding: 1px;
+  background: linear-gradient(
+    45deg,
+    var(--primary),
+    var(--secondary),
+    var(--primary)
+  );
+  background-size: 400% 400%;
+  animation: gradientMove 3s ease infinite;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.container:hover::after {
+  opacity: 1;
+}
+
+@keyframes gradientMove {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Active Review Indicator */
+.first > div::before,
+.second > div::before,
+.third > div::before,
+.fourth > div::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.6;
+  animation: indicatorPulse 2s infinite;
+  display: none;
+}
+
+@keyframes indicatorPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.9;
+  }
+}
+
+.first:hover > div::before,
+.second:hover > div::before,
+.third:hover > div::before,
+.fourth:hover > div::before {
+  display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .container {
+    margin: 2rem;
+    border-radius: 20px;
+  }
+  
+  .txt {
+    font-size: 2.25rem;
+  }
+  
+  .first, .second, .third, .fourth {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  .upper, .lower {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  
+  .first, .second, .third, .fourth {
+    border: none !important;
+    border-bottom: 1px solid var(--border) !important;
+    padding: 24px;
+  }
+  
+  .fourth {
+    border-bottom: none !important;
+  }
+  
+  /* Hide corner accents on mobile */
+  .first::before,
+  .first::after,
+  .second::before,
+  .second::after,
+  .third::before,
+  .third::after,
+  .fourth::before,
+  .fourth::after {
+    display: none;
+  }
+  
+  .title {
+    padding: 28px;
+  }
+  
+  .txt {
+    font-size: 2rem;
+  }
+  
+  .txt::after {
+    width: 60px;
+    height: 3px;
+    bottom: -10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    margin: 1rem;
+    border-radius: 16px;
+  }
+  
+  .first, .second, .third, .fourth {
+    padding: 20px;
+  }
+  
+  .title {
+    padding: 24px 20px;
+  }
+  
+  .txt {
+    font-size: 1.75rem;
+  }
+  
+  .cycleIndicator {
+    bottom: 12px;
+  }
+  
+  .indicatorDot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    margin: 0.5rem;
+    border-radius: 12px;
+  }
+  
+  .first, .second, .third, .fourth {
+    padding: 16px;
+  }
+  
+  .title {
+    padding: 20px 16px;
+  }
+  
+  .txt {
+    font-size: 1.5rem;
+  }
+  
+  .txt::after {
+    width: 40px;
+    bottom: -8px;
+  }
+}
+
+/* Dark mode adjustments - using your variables */
+:root[data-theme="dark"] .container {
+  background: var(--bg);
+  border-color: var(--border);
+}
+
+:root[data-theme="dark"] .title {
+  background: linear-gradient(135deg, var(--primary) 0%, rgba(59, 130, 246, 0.1) 100%);
+}
+
+:root[data-theme="dark"] .first:hover,
+:root[data-theme="dark"] .second:hover,
+:root[data-theme="dark"] .third:hover,
+:root[data-theme="dark"] .fourth:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+/* Print styles */
+@media print {
+  .container {
+    box-shadow: none;
+    border: 2px solid #000;
+  }
+  
+  .first, .second, .third, .fourth {
+    border: 1px solid #000 !important;
+    break-inside: avoid;
+  }
+  
+  .title {
+    background: none;
+    color: #000;
+  }
+  
+  .cycleIndicator,
+  .container::after {
+    display: none;
+  }
+}

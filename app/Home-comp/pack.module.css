@@ -108,7 +108,7 @@
   border-radius: 8px;
   font-weight: 600;
   font-size: 1rem;
-  cursor: pointer;
+  cursor: not-allowed;
   transition: all 0.3s ease;
   display: inline-flex;
   align-items: center;

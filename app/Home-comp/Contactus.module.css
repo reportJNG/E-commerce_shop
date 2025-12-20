@@ -1,1 +1,221 @@
-@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css')
+/* Contactus.module.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2.5rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+/* Title Section */
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), transparent);
+  transition: width 0.4s ease;
+}
+
+.container:hover .title::after {
+  width: 500px;
+}
+
+.title i {
+  font-size: 1.8rem;
+  transition: transform 0.3s ease;
+}
+
+.container:hover .title i {
+  transform: scale(1.1);
+}
+
+/* Information Grid */
+.information {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  
+}
+
+.inftxt {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--secondary);
+  margin: 0;
+  padding: 0.75rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inftxt::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.inftxt:hover::before {
+  transform: scale(1.5);
+}
+
+.inftxt:hover {
+  color: var(--primary);
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+/* Feedback Section */
+.feedback {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1.5rem;
+  background: var(--bg);
+}
+
+.contactbtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 60px;
+  height: 60px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  transition: all 0.3s ease;
+}
+
+.contactbtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: #2563eb;
+}
+
+.contactbtn:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.contactbtn i {
+  transition: transform 0.3s ease;
+}
+
+.contactbtn:hover i {
+  transform: translateX(2px);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .container {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+  }
+  
+  .information {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .inftxt {
+    font-size: 1rem;
+    padding: 0.5rem 0 0.5rem 1.25rem;
+  }
+  
+  .feedback {
+    padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .contactbtn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Animation for text changing component */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add animation to feedback text */
+.feedback > div:first-child {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Enhanced focus states for accessibility */
+.contactbtn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Loading state */
+.contactbtn.loading {
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.contactbtn.loading i {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

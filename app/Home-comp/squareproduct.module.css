@@ -19,7 +19,6 @@
 
 .containersquaremini:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-4px);
   border-color: var(--primary);
 }
 
@@ -68,8 +67,8 @@
   background-color: var(--primary);
   color: white;
   border: none;
-  border-radius: 20px;
-  padding: 0.5rem;
+  border-radius: 15px;
+  padding-left: 0.5rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -105,8 +104,8 @@
 }
 
 .hiddentillhover:hover {
-  padding: 0.5rem 1rem;
-  min-width: 80px;
+  padding: 0.1rem 0.3rem 0.1rem 0.1rem;
+  
 }
 
 .hiddentillhover:hover .hoverover {
@@ -116,7 +115,7 @@
 
 .hiddentillhover:hover .showus {
   opacity: 1;
-  width: auto;
+  width: 30px;
 }
 
 /* Cart buttons container - positioned at bottom right */
@@ -128,9 +127,9 @@
   background-color: var(--primary);
   color: white;
   border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  border-radius: 25%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -149,7 +148,6 @@
 
 .addtocart:hover {
   background-color: #10b981;
-  transform: scale(1.1) rotate(90deg);
 }
 
 .deletecart {
@@ -158,7 +156,6 @@
 
 .deletecart:hover {
   background-color: #dc2626;
-  transform: scale(1.1) rotate(-10deg);
 }
 
 /* Icon styles */
@@ -166,12 +163,9 @@
 .deletecart i,
 .hoverover i {
   font-size: 1.25rem;
-  transition: transform 0.3s ease;
 }
 
-.addtocart:hover i {
-  transform: rotate(180deg);
-}
+
 
 .deletecart:hover i {
   transform: rotate(15deg);

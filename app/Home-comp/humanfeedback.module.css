@@ -1,0 +1,146 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-solid-rounded/css/uicons-solid-rounded.css');
+.container {
+  background-color: var(--bg);
+  border: 1px solid var(--secondary);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 16px 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.container:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.upper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.userimage {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userimage i {
+  font-size: 24px;
+  color: var(--primary);
+  background-color: rgba(59, 130, 246, 0.1);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nameuser {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0;
+}
+
+/* Rating styles - Simplified approach */
+.ratingContainer {
+  display: flex;
+  align-items: center;
+}
+
+.starsWrapper {
+  position: relative;
+  display: inline-flex;
+  font-size: 18px;
+}
+
+.filledStars {
+  color: yellow;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.emptyStars {
+  color: var(--secondary);
+  opacity: 0.3;
+}
+
+/* Specific rating widths */
+.rating1 .filledStars {
+  width: 20%;
+}
+
+.rating2 .filledStars {
+  width: 40%;
+}
+
+.rating3 .filledStars {
+  width: 60%;
+}
+
+.rating4 .filledStars {
+  width: 80%;
+}
+
+.rating5 .filledStars {
+  width: 100%;
+}
+
+.lower {
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--secondary);
+  margin: 0;
+  padding: 16px;
+  background-color: rgba(229, 229, 229, 0.1);
+  border-radius: 8px;
+  border-left: 3px solid var(--primary);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--secondary);
+}
+
+.items p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--secondary);
+  display: flex;
+  gap: 8px;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .upper {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .ratingContainer {
+    align-self: flex-start;
+  }
+  
+  .container {
+    padding: 20px;
+  }
+}

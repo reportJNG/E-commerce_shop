@@ -3,13 +3,17 @@ import { useState } from 'react';
 import { AiOutlineShoppingCart, AiOutlineClockCircle, AiOutlineStar, AiOutlineGlobal, AiOutlineUser, AiOutlineGift, AiOutlineReload, AiOutlineCar } from 'react-icons/ai';
 import styles from './main.module.css';
 import { useRouter } from 'next/navigation';
+import Feedback from '../Home-comp/Feedback';
 import Bigscrollclothes from "../Home-comp/Bigscrollclothes"
 import Header from "../Components/Header"
 import Textchange from "../Home-comp/Textchange";
+import Contactus from '../Home-comp/Contactus';
+import Allpartner from '../Home-comp/Allpartner';
 import Man from "../Home-comp/Man";
 import Squareexpericence from '../Home-comp/Squareexperience';
 import Itemshandler from '../Home-comp/Itemshandler';
 import Bigoffer from '../Home-comp/Bigoffer';
+import About from '../Components/About';
 export default function Main1(){
 const Firsttext: string[] = [
     "Premium Quality, Handpicked for You",
@@ -32,20 +36,14 @@ const Firsttext: string[] = [
   "Secure Payments & Happy Customers"
 ];
 
-  const Thirdtext: string[] = [
-    "Premium Quality, Handpicked for You",
-    "Over 500+ Satisfied Customers Trust Our Collection",
-    "Affordable Luxury — Stylish Looks Without Breaking the Bank",
-    "Eco-Friendly Materials for a Sustainable Wardrobe",
-    "Fast Shipping & Hassle-Free Returns",
-    "Limited Stock — Grab Your Favorite Pieces Before They’re Gone!",
-    "Exclusive Collections You Won’t Find Anywhere Else",
-    "Handcrafted Details for a Perfect Fit",
-    "Customer Favorites — Rated 5 Stars",
-    "Shop with Confidence — Secure Payments & Privacy Guaranteed",
-    "Seasonal Trends Curated Just for You",
-    "Join Our Loyalty Program & Enjoy Special Rewards"
-  ];
+ const Thirdtext: string[] = [
+  "Your happiness is our top priority",
+  "Carefully selected to bring you comfort and confidence",
+  "Loved by customers who come back again and again",
+  "Quality you can feel, service you can trust",
+  "We’re here to make every purchase a great experience"
+];
+
 const routes=useRouter();
 
 
@@ -142,9 +140,25 @@ const routes=useRouter();
       <Textchange t={Secondtext}/> {/**here only for few texts in array */}
       <div className={styles.offer}><Bigoffer/></div> {/**handler all offers */}
 
-      <div> {/**handler all  products + packs */}
+      <div className={styles.offer}> {/**handler all  products + packs */}
       <Itemshandler/>
       </div>
-        </div>
+      <div className={styles.offer}> {/**handler all the reviews of all faked ppl */}
+      <Feedback />
+      </div>
+      <Textchange t={Thirdtext}/>
+
+
+
+      <div className={styles.offer}>{/** contact us */}
+      <Contactus/>
+      </div>
+
+      <div className={styles.offer}>{/** parnters */}
+      <Allpartner/>
+      </div>
+      <About/>
+        </div> //end of app main
+      
     )
 }
