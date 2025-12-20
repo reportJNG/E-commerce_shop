@@ -98,7 +98,7 @@ export default function About() {
       <div className={styles.navContainer}>
         <i 
           className={`${styles.navIcon} fi fi-rr-home`} 
-          onClick={() => navigateTo('/')}
+          onClick={() => navigateTo('/Home')}
           aria-label="Home"
         />
         <i 

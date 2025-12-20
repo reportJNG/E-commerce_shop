@@ -16,7 +16,7 @@ export default function Header(){
             <Image src='/logo.png' alt='LogoOfEcomerce' width={60} height={60} className={styles.logophoto}/>
             </div>
             <div className={styles.hrefslinksONcenter}>
-            <i className="fi fi-rr-home" onClick={()=>routes.push('/')}/>
+            <i className="fi fi-rr-home" onClick={()=>routes.push('/Home')}/>
             <i className="fi fi-rr-shopping-cart" onClick={()=>routes.push('/Shop')}/>
                 <i className="fi fi-rr-paper-plane" onClick={()=>routes.push('/Feedback')}/>
             <i className="fi fi-rr-bell" onClick={()=>routes.push('/')}/>
