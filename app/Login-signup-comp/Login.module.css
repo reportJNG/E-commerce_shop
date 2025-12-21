@@ -1,47 +1,47 @@
 .container {
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: var(--bg);
-  padding: 20px;
-  font-family: system-ui, -apple-system, sans-serif;
-  position: relative;
+  padding: 0;
+  margin: 0;
+  background: transparent;
 }
 
 .box {
   width: 100%;
-  max-width: 420px;
-  background-color: var(--bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 40px 32px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  max-width: 380px;
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
   animation: fadeIn 0.3s ease-out;
 }
 
 .title {
   text-align: center;
-  color: var(--secondary);
-  font-size: 28px;
+  color: var(--text);
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 32px;
+  margin-bottom: 2rem;
   letter-spacing: -0.5px;
 }
 
 .box form {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .box input {
   width: 100%;
-  padding: 14px 16px;
+  padding: 1rem 1.25rem;
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 14px;
-  color: var(--secondary);
+  font-size: 1rem;
+  color: var(--text);
   background-color: var(--bg);
   transition: all 0.2s ease;
   outline: none;
@@ -53,27 +53,27 @@
 }
 
 .box input::placeholder {
-  color: var(--secondary);
+  color: var(--text-secondary);
   opacity: 0.6;
 }
 
 .box button {
   width: 100%;
-  padding: 14px 24px;
-  background-color: var(--primary);
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 .box button:hover:not(:disabled) {
-  background-color: #2563eb;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .box button:active:not(:disabled) {
@@ -81,9 +81,11 @@
 }
 
 .box button:disabled {
-  background-color: #9ca3af;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   cursor: not-allowed;
   opacity: 0.7;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Loading spinner styles */
@@ -92,7 +94,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   top: 0;
   left: 0;
@@ -133,32 +135,30 @@
 /* Responsive adjustments */
 @media (max-width: 640px) {
   .box {
-    padding: 32px 24px;
     max-width: 100%;
+    padding: 0 1rem;
   }
   
   .title {
-    font-size: 24px;
+    font-size: 1.5rem;
   }
   
   .box input {
-    padding: 12px 14px;
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
   }
   
   .box button {
-    padding: 12px 20px;
+    padding: 0.875rem;
   }
 }
 
 /* Dark mode specific adjustments */
-:root[data-theme="dark"] .box {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
 :root[data-theme="dark"] .box input {
-  background-color: #1f2937;
+  background-color: var(--bg-secondary);
+  border-color: var(--border-dark);
 }
 
 :root[data-theme="dark"] .loding {
-  background-color: #171717;
+  background-color: var(--bg);
 }

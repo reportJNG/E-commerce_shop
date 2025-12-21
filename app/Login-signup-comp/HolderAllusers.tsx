@@ -7,54 +7,97 @@ import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeProvider';
 
 export default function Holderallusers(){
-  const [onof, setOnof] = useState<boolean>(false);
-  const [isAnimating, setIsAnimating] = useState<boolean>(false);
+  const [activeForm, setActiveForm] = useState<'login' | 'signup'>('login');
+  const [isTransitioning, setIsTransitioning] = useState(false);
   
   const tcontext = useContext(ThemeContext);
   if(!tcontext) return null;
   const {theme, setTheme} = tcontext;
   
-  const handleToggle = () => {
-    if (isAnimating) return;
-    setIsAnimating(true);
-    setOnof(prev => !prev);
+  const handleFormSwitch = (form: 'login' | 'signup') => {
+    if (isTransitioning || activeForm === form) return;
     
+    setIsTransitioning(true);
     setTimeout(() => {
-      setIsAnimating(false);
-    }, 400);
+      setActiveForm(form);
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 100);
+    }, 300);
   };
   
   return(
-    <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <div className={`${styles.sliderContainer} ${isAnimating ? styles.animating : ''}`}>
-          <div 
-            className={styles.slide}
-            style={{ transform: `translateX(${onof ? '-100%' : '0%'})` }}
+    <div className={`${styles.container} ${activeForm === 'login' ? styles.loginActive : styles.signupActive}`}>
+      {/* Theme Toggle */}
+      <button 
+        className={styles.themeToggle} 
+        onClick={() => setTheme(theme === 'dark' ? "light" : "dark")}
+        aria-label="Toggle theme"
+      >
+        {theme === "light" ? <i className="fi fi-rc-moon-stars"/> : <i className="fi fi-rr-sun"/>}
+      </button>
+      
+      {/* Main Card */}
+      <div className={styles.card}>
+        {/* Form Tabs */}
+        <div className={styles.tabs}>
+          <button 
+            className={`${styles.tab} ${activeForm === 'login' ? styles.activeTab : ''}`}
+            onClick={() => handleFormSwitch('login')}
           >
-            <div className={styles.formWrapper}>
-              <Login/>
+            <i className="fi fi-rr-sign-in-alt"></i>
+            <span>Login</span>
+          </button>
+          <button 
+            className={`${styles.tab} ${activeForm === 'signup' ? styles.activeTab : ''}`}
+            onClick={() => handleFormSwitch('signup')}
+          >
+            <i className="fi fi-rr-user-add"></i>
+            <span>Sign Up</span>
+          </button>
+        </div>
+        
+        {/* Form Container */}
+        <div className={styles.formContainer}>
+          {/* Login Form */}
+          <div className={`${styles.formWrapper} ${activeForm === 'login' ? styles.active : ''}`}>
+            <div className={`${styles.formContent} ${isTransitioning && activeForm === 'login' ? styles.entering : ''}`}>
+              <Login />
             </div>
-            <div className={styles.formWrapper}>
-              <Signup/>
+          </div>
+          
+          {/* Signup Form */}
+          <div className={`${styles.formWrapper} ${activeForm === 'signup' ? styles.active : ''}`}>
+            <div className={`${styles.formContent} ${isTransitioning && activeForm === 'signup' ? styles.entering : ''}`}>
+              <Signup />
             </div>
           </div>
         </div>
         
-        <div className={styles.buttonContainer}>
-          <button 
-            className={`${styles.btncented} ${isAnimating ? styles.disabled : ''}`} 
-            onClick={handleToggle}
-          >
-            {!onof ? <i className="fi fi-rr-pencil"></i> : <i className="fi fi-br-running"></i>}
-          </button>
+        {/* Form Footer */}
+        <div className={styles.formFooter}>
+          {activeForm === 'login' ? (
+            <p>
+              Don't have an account?{' '}
+              <button 
+                className={styles.switchLink}
+                onClick={() => handleFormSwitch('signup')}
+              >
+                Sign up here
+              </button>
+            </p>
+          ) : (
+            <p>
+              Already have an account?{' '}
+              <button 
+                className={styles.switchLink}
+                onClick={() => handleFormSwitch('login')}
+              >
+                Login here
+              </button>
+            </p>
+          )}
         </div>
-      </div>
-      
-      <div className={styles.themeToggleContainer}>
-        <button className={styles.themeToggle} onClick={() => setTheme(theme === 'dark' ? "light" : "dark")}>
-          {theme === "light" ? <i className="fi fi-rc-moon-stars"/> : <i className="fi fi-rr-sun"/>}
-        </button>
       </div>
     </div>
   )

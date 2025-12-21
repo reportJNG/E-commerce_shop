@@ -1,52 +1,58 @@
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background-color: var(--bg);
-  padding: 20px;
-  font-family: system-ui, -apple-system, sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .box {
   width: 100%;
-  max-width: 480px;
-  background-color: var(--bg);
-  border: 1px solid var(--border);
+  background-color: transparent;
   border-radius: 12px;
-  padding: 40px 32px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 .title {
   text-align: center;
-  color: var(--secondary);
-  font-size: 28px;
+  color: var(--text);
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-bottom: 32px;
+  margin: 0;
   letter-spacing: -0.5px;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 1.25rem;
+  width: 100%;
 }
 
 .inputinformation {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* Grid layout for better organization */
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: 100%;
 }
 
 .inputinformation input,
 .inputinformation select {
   width: 100%;
-  padding: 12px 16px;
+  padding: 0.875rem 1rem;
   border: 1px solid var(--border);
   border-radius: 8px;
-  font-size: 14px;
-  color: var(--secondary);
+  font-size: 0.95rem;
+  color: var(--text);
   background-color: var(--bg);
   transition: all 0.2s ease;
   outline: none;
@@ -59,33 +65,67 @@
 }
 
 .inputinformation input::placeholder {
-  color: var(--secondary);
+  color: var(--text-secondary);
   opacity: 0.6;
 }
 
 .inputinformation select {
   appearance: none;
   cursor: pointer;
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%234b5563' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748b' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
   background-repeat: no-repeat;
-  background-position: right 16px center;
+  background-position: right 1rem center;
   background-size: 20px;
-  padding-right: 48px;
+  padding-right: 3rem;
+}
+
+.passwordSection {
+  margin: 0.5rem 0;
 }
 
 .passwordstats {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin-top: 4px;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .passwordstats p {
-  color: var(--secondary);
-  font-size: 14px;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
   white-space: nowrap;
+}
+
+.strengthIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-grow: 1;
+}
+
+.strengthBar {
+  height: 6px;
+  border-radius: 3px;
+  flex-grow: 1;
+  background-color: var(--border);
+  overflow: hidden;
+  position: relative;
+}
+
+.strengthFill {
+  height: 100%;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.strengthLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  min-width: 40px;
+  text-align: right;
 }
 
 .line {
@@ -94,7 +134,6 @@
   width: 0%;
   transition: all 0.3s ease;
   flex-grow: 1;
-  margin-right: 8px;
 }
 
 .line0 {
@@ -118,37 +157,37 @@
 }
 
 .passowrdnomatch {
-  min-height: 20px;
-  margin-top: -8px;
+  min-height: 1.25rem;
+  margin-top: 0.25rem;
 }
 
 .redtext {
   color: #ef4444;
-  font-size: 13px;
+  font-size: 0.8125rem;
   margin: 0;
   font-weight: 500;
 }
 
 .buttonhandler {
-  margin-top: 8px;
+  margin-top: 1rem;
 }
 
 .buttonhandler button {
   width: 100%;
-  padding: 14px 24px;
-  background-color: var(--primary);
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .buttonhandler button:hover:not(:disabled) {
-  background-color: #2563eb;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
 
 .buttonhandler button:active:not(:disabled) {
@@ -156,42 +195,42 @@
 }
 
 .buttonhandler button:disabled {
-  background-color: #9ca3af;
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
   cursor: not-allowed;
   opacity: 0.7;
+  transform: none;
+  box-shadow: none;
 }
 
 /* Responsive adjustments */
 @media (max-width: 640px) {
-  .box {
-    padding: 32px 24px;
-    max-width: 100%;
+  .title {
+    font-size: 1.5rem;
   }
   
-  .title {
-    font-size: 24px;
+  .inputRow {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
   }
   
   .inputinformation input,
   .inputinformation select {
-    padding: 10px 14px;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9rem;
   }
   
   .buttonhandler button {
-    padding: 12px 20px;
+    padding: 0.875rem;
   }
 }
 
 /* Dark mode specific adjustments */
-:root[data-theme="dark"] .box {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
 :root[data-theme="dark"] .inputinformation input,
 :root[data-theme="dark"] .inputinformation select {
-  background-color: #1f2937;
+  background-color: var(--bg-secondary);
+  border-color: var(--border-dark);
 }
 
 :root[data-theme="dark"] .inputinformation select {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23d4d4d4' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2394a3b8' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
 }

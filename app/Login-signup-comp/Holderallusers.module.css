@@ -1,176 +1,365 @@
 .container {
-  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg);
-  transition: background-color 0.3s ease;
+  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
   padding: 1rem;
-}
-
-.wrapper {
   position: relative;
-  width: 100%;
-  max-width: 400px;
-  background-color: var(--bg);
-  border-radius: 1rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--border);
-  overflow: hidden;
-  transition: all 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.sliderContainer {
-  position: relative;
-  width: 200%;
-  transition: transform 0.4s ease;
-}
-
-.sliderContainer.animating {
-  transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.slide {
-  display: flex;
-  width: 50%;
-  transition: transform 0.4s ease;
-}
-
-.formWrapper {
-  width: 100%;
-  flex-shrink: 0;
-  padding: 2rem;
-}
-
-.buttonContainer {
-  position: absolute;
-  bottom: -24px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.btncented {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  font-size: 1.25rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.btncented:hover:not(.disabled) {
-  transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.4);
-}
-
-.btncented:active:not(.disabled) {
-  transform: scale(0.98);
-}
-
-.btncented.disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-  transform: none;
-}
-
-.themeToggleContainer {
-  position: absolute;
+/* Theme Toggle */
+.themeToggle {
+  position: fixed;
   top: 1.5rem;
   right: 1.5rem;
-}
-
-.themeToggle {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background-color: var(--bg);
-  color: var(--secondary);
+  background: var(--card-bg);
+  color: var(--text);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   font-size: 1.25rem;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .themeToggle:hover {
-  background-color: var(--border);
-  transform: rotate(15deg);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive design */
-@media (max-width: 480px) {
-  .wrapper {
-    max-width: 100%;
+/* Main Card - Dynamic sizing */
+.card {
+  width: 100%;
+  max-width: 420px; /* Default for login */
+  background: var(--card-bg);
+  border-radius: 20px;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  animation: cardEntrance 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.loginActive .card {
+  max-width: 420px; /* Smaller for login */
+  height: 500px;
+}
+
+.signupActive .card {
+  max-width: 500px; /* Larger for signup */
+  height: 650px; /* Taller to accommodate more inputs */
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  background: var(--bg-secondary);
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.tab:hover {
+  color: var(--text);
+  background: var(--bg);
+  transform: translateY(-1px);
+}
+
+.tab.activeTab {
+  color: var(--primary);
+  background: var(--card-bg);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb, 59, 130, 246), 0.15);
+}
+
+.tab.activeTab::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 2px;
+  animation: tabIndicator 0.3s ease;
+}
+
+.tab i {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.tab:hover i {
+  transform: scale(1.1);
+}
+
+/* Form Container - Dynamic height */
+.formContainer {
+  position: relative;
+  height: calc(100% - 140px); /* Subtract tabs and footer height */
+  overflow: hidden;
+  overflow-y: auto; /* Allow scrolling for signup form */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.formContainer::-webkit-scrollbar {
+  width: 4px;
+}
+
+.formContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.formContainer::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 2px;
+}
+
+.formWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateX(20px);
+  visibility: hidden;
+  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+}
+
+.formWrapper.active {
+  opacity: 1;
+  transform: translateX(0);
+  visibility: visible;
+}
+
+.formContent {
+  height: 100%;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+.formContent.entering {
+  animation: slideIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Form Footer */
+.formFooter {
+  padding: 1.5rem 2rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  background: var(--bg-secondary);
+}
+
+.switchLink {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.switchLink:hover {
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.switchLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.switchLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* Animations */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes tabIndicator {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40px;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    max-width: 95%;
     margin: 0 1rem;
   }
   
+  .loginActive .card,
+  .signupActive .card {
+    max-width: 95%;
+    height: auto;
+    min-height: 500px;
+  }
+  
+  .formContainer {
+    height: auto;
+    min-height: 400px;
+  }
+  
   .formWrapper {
+    position: relative;
+    height: auto;
+    opacity: 0;
+    transform: translateY(10px);
     padding: 1.5rem;
   }
   
-  .btncented {
-    width: 44px;
-    height: 44px;
-    font-size: 1.1rem;
+  .formWrapper.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .tabs {
+    padding: 0.5rem;
+  }
+  
+  .tab {
+    padding: 0.75rem;
+    font-size: 0.95rem;
+  }
+  
+  .tab i {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+  
+  .card {
+    max-width: 100%;
+    border-radius: 16px;
+  }
+  
+  .formWrapper {
+    padding: 1.25rem;
+  }
+  
+  .tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tab {
+    width: 100%;
   }
   
   .themeToggle {
+    top: 1rem;
+    right: 1rem;
     width: 40px;
     height: 40px;
-    font-size: 1.1rem;
+  }
+  
+  .formFooter {
+    padding: 1rem;
+    font-size: 0.9rem;
   }
 }
 
-/* Dark mode specific adjustments */
-:root[data-theme="dark"] .wrapper {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+/* Dark mode adjustments */
+:root[data-theme="dark"] .card {
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 1px 2px rgba(0, 0, 0, 0.1);
+  background: var(--card-bg);
 }
 
-:root[data-theme="dark"] .btncented {
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+:root[data-theme="dark"] .themeToggle {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-:root[data-theme="dark"] .btncented:hover:not(.disabled) {
-  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.6);
+:root[data-theme="dark"] .tabs {
+  background: var(--bg);
 }
 
-/* Animation keyframes for sliding effect */
-@keyframes slideInLeft {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideInRight {
-  from {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-/* Add smooth transitions for theme changes */
-.wrapper,
-.btncented,
+/* Smooth transitions */
+.card,
+.tab,
+.formWrapper,
+.switchLink,
 .themeToggle {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
