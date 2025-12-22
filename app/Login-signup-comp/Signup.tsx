@@ -8,7 +8,7 @@ import Message from '../Components/Message';
 export default function Signup(){
   const [first,setFirst]=useState<string>('');
   const [confirme,setComfirme]=useState<string>('');
-  const [disabledbtn,setDisabledbtn]=useState<boolean>(false);
+  const [disabledbtn,setDisabledbtn]=useState<boolean>(true);
   const [showms,setShowms]=useState<boolean>(false);
   const [counter, setCounter] = useState(0);
 
@@ -65,8 +65,8 @@ export default function Signup(){
       setShowms(true);
       setTimeout(() => {
         setShowms(false);
-        routes.push('/Login?=true');
-      }, 2000);
+        routes.push('/Home');
+      }, 5000);
     }
   }
 
@@ -82,7 +82,7 @@ export default function Signup(){
   return (
     <div className={styles.container}>
       {showms ? (
-        <Message text='Successfully Sign-Up' comment='Redirect to login' color='green'/>
+        <Message text='Successfully Sign-Up' comment='Redirect to Home' color='green'/>
       ) : (
         <div className={styles.box}>
           <form onSubmit={Bypassuser} className={styles.form}>
@@ -185,8 +185,8 @@ export default function Signup(){
                 />
                 
                 <div className={styles.passowrdnomatch}>
-                  {first!==confirme && disabledbtn && (
-                    <p className={styles.redtext}>Passwords dont match</p>
+                  {first!==confirme && disabledbtn &&(
+                    <p className={styles.redtext}>Waiting</p>
                   )}
                 </div>
                 
@@ -205,7 +205,7 @@ export default function Signup(){
             
             <div className={styles.buttonhandler}>
               <button type="submit" disabled={disabledbtn}>
-                {disabledbtn ? 'Passwords Must Match' : 'Create Account'}
+                Create Account
               </button>
             </div>
           </form>

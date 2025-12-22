@@ -16,7 +16,7 @@
 
 .title {
   text-align: center;
-  color: var(--text);
+  color: var(--secondary);
   font-size: 1.75rem;
   font-weight: 700;
   margin: 0;
@@ -37,7 +37,6 @@
   width: 100%;
 }
 
-/* Grid layout for better organization */
 .inputRow {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -52,7 +51,7 @@
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.95rem;
-  color: var(--text);
+  color: var(--secondary);
   background-color: var(--bg);
   transition: all 0.2s ease;
   outline: none;
@@ -65,7 +64,7 @@
 }
 
 .inputinformation input::placeholder {
-  color: var(--text-secondary);
+  color: var(--secondary);
   opacity: 0.6;
 }
 
@@ -92,7 +91,7 @@
 }
 
 .passwordstats p {
-  color: var(--text-secondary);
+  color: var(--secondary);
   font-size: 0.875rem;
   font-weight: 500;
   margin: 0;
@@ -168,12 +167,10 @@
   font-weight: 500;
 }
 
-
-
 .buttonhandler button {
   width: 100%;
   padding: 1rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, #2563eb 100%);
   color: white;
   border: none;
   border-radius: 8px;
@@ -225,8 +222,8 @@
 /* Dark mode specific adjustments */
 :root[data-theme="dark"] .inputinformation input,
 :root[data-theme="dark"] .inputinformation select {
-  background-color: var(--bg-secondary);
-  border-color: var(--border-dark);
+  background-color: var(--bg);
+  border-color: var(--border);
 }
 
 :root[data-theme="dark"] .inputinformation select {

@@ -5,6 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useContext } from 'react';
 import {ThemeContext } from './ThemeProvider';
 
+
+
 export default function Header(){
     const routes=useRouter();
     const tcontext=useContext(ThemeContext);
@@ -18,8 +20,10 @@ export default function Header(){
             <div className={styles.hrefslinksONcenter}>
             <i className="fi fi-rr-home" onClick={()=>routes.push('/Home')}/>
             <i className="fi fi-rr-shopping-cart" onClick={()=>routes.push('/Shop')}/>
-                <i className="fi fi-rr-paper-plane" onClick={()=>routes.push('/Feedback')}/>
+            <i className="fi fi-rr-credit-card" onClick={()=>routes.push('/Premnuim')}></i>
+            <i className="fi fi-rr-paper-plane" onClick={()=>routes.push('/Feedback')}/>
             <i className="fi fi-rr-bell" onClick={()=>routes.push('/')}/>
+            <i className="fi fi-rs-sign-out-alt" onClick={()=>routes.push('/')}></i>
             </div>
             <div className={styles.themetoright}>
             <button className={styles.themeToggle} onClick={()=>setTheme(theme==='dark'? "light":"dark")}>

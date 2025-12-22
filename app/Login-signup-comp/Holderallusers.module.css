@@ -1,9 +1,11 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-chubby/css/uicons-regular-chubby.css');
 .container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bg) 0%, var(--bg-secondary) 100%);
+  background: var(--bg);
   padding: 1rem;
   position: relative;
   transition: background 0.3s ease;
@@ -17,8 +19,8 @@
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: var(--card-bg);
-  color: var(--text);
+  background: var(--bg);
+  color: var(--secondary);
   border: 1px solid var(--border);
   display: flex;
   align-items: center;
@@ -31,17 +33,15 @@
 }
 
 .themeToggle:hover {
-  transform: scale(1.1) rotate(15deg);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 5 4px 12px rgba(8, 56, 176, 0.15);
 }
 
 /* Main Card - Dynamic sizing */
 .card {
   width: 100%;
-  max-width: 420px; /* Default for login */
-  background: var(--card-bg);
+  max-width: 420px;
+  background: var(--bg);
   border-radius: 20px;
-  
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.08),
     0 1px 2px rgba(0, 0, 0, 0.05);
@@ -52,19 +52,19 @@
 }
 
 .loginActive .card {
-  max-width: 420px; /* Smaller for login */
+  max-width: 420px;
   height: 500px;
 }
 
 .signupActive .card {
-  max-width: 560px; /* Larger for signup */
-  height: 650px; /* Taller to accommodate more inputs */
+  max-width: 560px;
+  height: 650px;
 }
 
 /* Tabs */
 .tabs {
   display: flex;
-  background: var(--bg-secondary);
+  background: var(--bg);
   padding: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
@@ -74,7 +74,7 @@
   padding: 1rem;
   border: none;
   background: transparent;
-  color: var(--text-secondary);
+  color: var(--secondary);
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
@@ -88,15 +88,15 @@
 }
 
 .tab:hover {
-  color: var(--text);
+  color: var(--secondary);
   background: var(--bg);
   transform: translateY(-1px);
 }
 
 .tab.activeTab {
   color: var(--primary);
-  background: var(--card-bg);
-  box-shadow: 0 2px 8px rgba(var(--primary-rgb, 59, 130, 246), 0.15);
+  background: var(--bg);
+  box-shadow: 0 4px 0px rgba(1, 98, 255, 0.15);
 }
 
 .tab.activeTab::after {
@@ -124,12 +124,11 @@
 /* Form Container - Dynamic height */
 .formContainer {
   position: relative;
-  height: calc(100% - 140px); /* Subtract tabs and footer height */
+  height: calc(100% - 140px);
   overflow: hidden;
-  overflow-y: auto; /* Allow scrolling for signup form */
+  overflow-y: auto;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
 .formContainer::-webkit-scrollbar {
   width: 4px;
 }
@@ -152,7 +151,6 @@
   padding: 1.8rem;
   opacity: 0;
   transform: translateX(20px);
-  
   visibility: hidden;
   transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
 }
@@ -177,9 +175,9 @@
   padding: 1.5rem 2rem;
   border-top: 1px solid var(--border);
   text-align: center;
-  color: var(--text-secondary);
+  color: var(--secondary);
   font-size: 0.95rem;
-  background: var(--bg-secondary);
+  background: var(--bg);
 }
 
 .switchLink {
@@ -196,7 +194,7 @@
 }
 
 .switchLink:hover {
-  color: var(--primary-dark);
+  color: var(--primary);
   transform: translateY(-1px);
 }
 
@@ -346,7 +344,6 @@
   box-shadow: 
     0 10px 30px rgba(0, 0, 0, 0.2),
     0 1px 2px rgba(0, 0, 0, 0.1);
-  background: var(--card-bg);
 }
 
 :root[data-theme="dark"] .themeToggle {
@@ -364,4 +361,71 @@
 .switchLink,
 .themeToggle {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* Main container */
+.mainContainer {
+  width: 100%;
+  height: 100vh;
+  min-height: 680px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background veil */
+.backgroundVeil {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* Updated container to appear above the veil */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 2; /* Ensure it appears above the DarkVeil */
+}
+
+/* Remove the background from container since DarkVeil is the background */
+.container {
+  background: transparent !important;
+}
+
+/* Update card to have solid background */
+.card {
+  background: var(--bg);
+}
+
+/* Ensure DarkVeil covers the entire background */
+.backgroundVeil > * {
+  width: 100%;
+  height: 100%;
+}
+
+/* Update responsive design */
+@media (max-width: 768px) {
+  .mainContainer {
+    min-height: 100vh;
+    height: auto;
+  }
+  
+  .backgroundVeil {
+    position: fixed;
+    height: 100vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContainer {
+    min-height: 100vh;
+  }
+  
+  .backgroundVeil {
+    position: fixed;
+  }
 }

@@ -16,7 +16,7 @@ const redirect=()=>{
             setLoading(false);
             setShowms(false);
             routes.push('/Home')
-    }, (4000));
+    }, (5000));
 
     return ()=> clearInterval(timer);
 }
