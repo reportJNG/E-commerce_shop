@@ -1,11 +1,11 @@
-import { useRouter } from 'next/navigation';
 import styles from './Signup.module.css';
 import { User } from '../Types/User';
 import { useState,useEffect } from 'react';
 import { allCountry } from '../Types/User';
-import Message from '../Components/Message';
-
-export default function Signup(){
+interface signupprops{
+fms:()=>void;
+}
+export default function Signup({fms}:signupprops){
   const [first,setFirst]=useState<string>('');
   const [confirme,setComfirme]=useState<string>('');
   const [disabledbtn,setDisabledbtn]=useState<boolean>(true);
@@ -55,7 +55,6 @@ export default function Signup(){
     setDisabledbtn(first !== confirme); 
   }, [first, confirme]);
 
-  const routes=useRouter();
   
   const Bypassuser = (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,10 +62,7 @@ export default function Signup(){
       return;
     } else {
       setShowms(true);
-      setTimeout(() => {
-        setShowms(false);
-        routes.push('/Home');
-      }, 5000);
+     fms();
     }
   }
 
@@ -82,7 +78,8 @@ export default function Signup(){
   return (
     <div className={styles.container}>
       {showms ? (
-        <Message text='Successfully Sign-Up' comment='Redirect to Home' color='green'/>
+              <div className={styles.loding}>{/**create a loeaeder with a css styles */}</div>
+
       ) : (
         <div className={styles.box}>
           <form onSubmit={Bypassuser} className={styles.form}>

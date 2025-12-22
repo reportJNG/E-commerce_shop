@@ -1,16 +1,20 @@
 'use client'
 import styles from './Holderallusers.module.css';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Login from './Login';
 import Signup from './Signup';
 import { useContext } from 'react';
 import { ThemeContext } from '../Components/ThemeProvider';
 import DarkVeil from './DarkVeil';
+import Message from '../Components/Message';
 
 export default function Holderallusers(){
   const [activeForm, setActiveForm] = useState<'login' | 'signup'>('login');
+  const routes=useRouter();
   const [isTransitioning, setIsTransitioning] = useState(false);
-  
+  const [showms,setShowms]=useState<boolean>(false);
+  const [fmsx,setFmsx]=useState<boolean>(false)
   const tcontext = useContext(ThemeContext);
   if(!tcontext) return null;
   const {theme, setTheme} = tcontext;
@@ -26,7 +30,22 @@ export default function Holderallusers(){
       }, 100);
     }, 300);
   };
-  
+  const getms=()=>{
+    setShowms(true);
+    const time = setInterval(() => {
+      setShowms(false);
+      routes.push('/Home');
+    }, 5000);
+    return ()=> clearInterval(time);
+  }
+   const fms=()=>{
+    setFmsx(true);
+    const time = setInterval(() => {
+      setFmsx(false);
+      routes.push('/Home');
+    }, 5000);
+    return ()=> clearInterval(time);
+  }
   return(
     <div className={styles.mainContainer}>
       {/* DarkVeil as background */}
@@ -70,14 +89,14 @@ export default function Holderallusers(){
             {/* Login Form */}
             <div className={`${styles.formWrapper} ${activeForm === 'login' ? styles.active : ''}`}>
               <div className={`${styles.formContent} ${isTransitioning && activeForm === 'login' ? styles.entering : ''}`}>
-                <Login />
+                <Login getms={getms}/>
               </div>
             </div>
             
             {/* Signup Form */}
             <div className={`${styles.formWrapper} ${activeForm === 'signup' ? styles.active : ''}`}>
               <div className={`${styles.formContent} ${isTransitioning && activeForm === 'signup' ? styles.entering : ''}`}>
-                <Signup />
+                <Signup fms={fms}/>
               </div>
             </div>
           </div>
@@ -108,6 +127,8 @@ export default function Holderallusers(){
           </div>
         </div>
       </div>
+       {showms&&<Message text='Succsesfull' color='green' comment='Enjoy Happy Shoppin'/>}
+      {fmsx&&<Message text='Successfully Sign-Up' comment='Redirect to Home' color='green'/>}
     </div>
   )
 }
