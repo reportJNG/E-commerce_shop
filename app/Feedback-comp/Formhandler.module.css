@@ -1,0 +1,168 @@
+/* Formhandler.module.css - Updated */
+.container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  position: relative;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  
+  height: 3px;
+  background: linear-gradient(90deg, 
+      transparent,
+      var(--primary),
+      #1c04d1,
+      transparent);
+  border-radius: 3px;
+}
+
+/* Textchanger container */
+.minitext {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  background: var(--bg);
+  border-radius: 16px;
+  border: 2px solid var(--border);
+  display: inline-block;
+  min-height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+}
+
+.minitext:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  border-color: var(--primary);
+}
+
+/* Form wrapper */
+.formWrapper {
+  background: var(--bg);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 2px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.formWrapper:hover {
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.formWrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .container {
+    margin: 1.5rem auto;
+    padding: 1.5rem;
+    max-width: 95%;
+  }
+  
+  .minitext {
+    font-size: 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+  
+  .formWrapper {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+  
+  .minitext {
+    font-size: 1.25rem;
+    padding: 1rem 1.5rem;
+    min-height: 3.5rem;
+  }
+  
+  .formWrapper {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+  
+  .header {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .minitext {
+    font-size: 1.125rem;
+    padding: 0.875rem 1rem;
+    border-radius: 12px;
+  }
+  
+  .formWrapper {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .header {
+    margin-bottom: 1.5rem;
+  }
+  
+  .header::after {
+    width: 150px;
+  }
+}
+
+/* Remove unnecessary animations and effects */
+.container > .particle,
+.formStatus,
+.loadingState,
+.successState,
+.formSection,
+.formField:focus-within::before,
+.submitArea::before {
+  display: none;
+}
+
+/* Ensure proper form container */
+.formContainer {
+  width: 100%;
+}
