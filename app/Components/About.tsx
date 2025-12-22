@@ -101,10 +101,16 @@ export default function About() {
           onClick={() => navigateTo('/Home')}
           aria-label="Home"
         />
+        
         <i 
           className={`${styles.navIcon} fi fi-rr-shopping-cart`} 
           onClick={() => navigateTo('/Shop')}
           aria-label="Shop"
+        />  
+            <i 
+          className={`${styles.navIcon} fi fi-rs-sign-out-alt`} 
+          onClick={() => navigateTo('/Shop')}
+          aria-label="Exit"
         />  
       </div>
     </div>
