@@ -78,7 +78,7 @@ export default function Holderallusers(){
         <div className={styles.formFooter}>
           {activeForm === 'login' ? (
             <p>
-              Don't have an account?{' '}
+              Dont have an account?{' '}
               <button 
                 className={styles.switchLink}
                 onClick={() => handleFormSwitch('signup')}

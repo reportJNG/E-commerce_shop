@@ -85,7 +85,6 @@ export default function Signup(){
         <Message text='Successfully Sign-Up' comment='Redirect to login' color='green'/>
       ) : (
         <div className={styles.box}>
-          <h2 className={styles.title}>Create Account</h2>
           <form onSubmit={Bypassuser} className={styles.form}>
             <div className={styles.inputinformation}>
               <div className={styles.inputRow}>
@@ -187,7 +186,7 @@ export default function Signup(){
                 
                 <div className={styles.passowrdnomatch}>
                   {first!==confirme && disabledbtn && (
-                    <p className={styles.redtext}>Passwords don't match</p>
+                    <p className={styles.redtext}>Passwords dont match</p>
                   )}
                 </div>
                 
