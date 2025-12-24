@@ -14,6 +14,7 @@ import Squareexpericence from '../Home-comp/Squareexperience';
 import Itemshandler from '../Home-comp/Itemshandler';
 import Bigoffer from '../Home-comp/Bigoffer';
 import About from '../Components/About';
+
 export default function Main1(){
 const Firsttext: string[] = [
     "Premium Quality, Handpicked for You",
@@ -55,7 +56,7 @@ const routes=useRouter();
   const [activeWorkers, setActiveWorkers] = useState(18);
   const [exclusiveProducts, setExclusiveProducts] = useState(20);
   const [returningCustomers, setReturningCustomers] = useState(10);
-
+  const [quant,setQuant]=useState<number>(0);
 
     return(
         <div>
@@ -141,7 +142,7 @@ const routes=useRouter();
       <div className={styles.offer}><Bigoffer/></div> {/**handler all offers */}
 
       <div className={styles.offer}> {/**handler all  products + packs */}
-      <Itemshandler/>
+      <Itemshandler setQuant={setQuant}/>
       </div>
       <div className={styles.offer}> {/**handler all the reviews of all faked ppl */}
       <Feedback />
@@ -157,7 +158,7 @@ const routes=useRouter();
       <div className={styles.offer}>{/** parnters */}
       <Allpartner/>
       </div>
-      <About/>
+      <About quant={quant}/>
         </div> //end of app main
       
     )

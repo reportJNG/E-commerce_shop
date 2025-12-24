@@ -22,7 +22,6 @@ export default function Header(){
             <i className="fi fi-rr-shopping-cart" onClick={()=>routes.push('/Shop')}/>
             <i className="fi fi-rr-credit-card" onClick={()=>routes.push('/Premnuim')}></i>
             <i className="fi fi-rr-paper-plane" onClick={()=>routes.push('/Feedback')}/>
-            <i className="fi fi-rr-bell" onClick={()=>routes.push('/')}/>
             <i className="fi fi-rs-sign-out-alt" onClick={()=>routes.push('/')}></i>
             </div>
             <div className={styles.themetoright}>

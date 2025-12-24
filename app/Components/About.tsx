@@ -2,8 +2,11 @@
 import styles from './about.module.css';
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
+interface aboutprops{
+    quant:number;
 
-export default function About() {
+}
+export default function About({quant}:aboutprops) {
   const router = useRouter();
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
@@ -107,11 +110,16 @@ export default function About() {
           onClick={() => navigateTo('/Shop')}
           aria-label="Shop"
         />  
-            <i 
+      <i className={`${styles.navIcon} ${styles.bellContainer} fi fi-rr-bell`} aria-label="Cart">
+      <span className={styles.insidebell}>{quant}</span>
+      </i>
+
+        <i 
           className={`${styles.navIcon} fi fi-rs-sign-out-alt`} 
           onClick={() => navigateTo('/Shop')}
           aria-label="Exit"
         />  
+
       </div>
     </div>
   );

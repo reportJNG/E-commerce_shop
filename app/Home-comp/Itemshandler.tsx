@@ -1,10 +1,14 @@
 import styles from './itemshandler.module.css';
-import { useState } from 'react';
+import {useState} from 'react';
 import Packs, { PacksProps } from './Packs';
 import Squareproduct, { ProductPropsType } from './Sqaureproduct';
 import { useRouter } from 'next/navigation';
 
-export default function Itemshandler() {
+interface Itemshandlerprops{
+  setQuant:React.Dispatch<React.SetStateAction<number>>
+}
+
+export default function Itemshandler({setQuant}:Itemshandlerprops) {
   const [index, setIndex] = useState<number>(4);
   const [cartItems, setCartItems] = useState<number[]>([]);
   const routes = useRouter();
@@ -29,80 +33,102 @@ export default function Itemshandler() {
       price: 39.99,
     },
   ];
-
+ 
   const carthandler = (productId: number) => {
     setCartItems(prev => {
-      if (prev.includes(productId)) {
+      const isInCart = prev.includes(productId);
+      
+      // First update the cart items
+      if (isInCart) {
+        // Update quant AFTER we've determined the new state
+        setTimeout(() => setQuant(prevQuant => prevQuant - 1), 0);
         return prev.filter(id => id !== productId);
       } else {
+        // Update quant AFTER we've determined the new state
+        setTimeout(() => setQuant(prevQuant => prevQuant + 1), 0);
         return [...prev, productId];
       }
     });
   };
 
+  // BETTER ALTERNATIVE: Update both states separately
+  const carthandlerAlternative = (productId: number) => {
+    const isInCart = cartItems.includes(productId);
+    
+    if (isInCart) {
+      // Remove from cart
+      setCartItems(prev => prev.filter(id => id !== productId));
+      setQuant(prev => prev - 1);
+    } else {
+      // Add to cart
+      setCartItems(prev => [...prev, productId]);
+      setQuant(prev => prev + 1);
+    }
+  };
+
+  // Use the alternative version which is cleaner
   const productsitems: ProductPropsType[] = [
     {
       url: "/images/product1.jpg",
       name: "Leather Jacket",
       price: 50,
       isincart: cartItems.includes(1),
-      togglecart: () => carthandler(1),
+      togglecart: () => carthandlerAlternative(1),
     },
     {
       url: "/images/product2.jpg",
       name: "Sneakers",
       price: 80,
       isincart: cartItems.includes(2),
-      togglecart: () => carthandler(2),
+      togglecart: () => carthandlerAlternative(2),
     },
     {
       url: "/images/product3.jpg",
       name: "Jeans",
       price: 90,
       isincart: cartItems.includes(3),
-      togglecart: () => carthandler(3),
+      togglecart: () => carthandlerAlternative(3),
     },
     {
       url: "/images/product4.jpg",
       name: "T-Shirt",
       price: 35,
       isincart: cartItems.includes(4),
-      togglecart: () => carthandler(4),
+      togglecart: () => carthandlerAlternative(4),
     },
     {
       url: "/images/product5.jpg",
       name: "Hat",
       price: 10,
       isincart: cartItems.includes(5),
-      togglecart: () => carthandler(5),
+      togglecart: () => carthandlerAlternative(5),
     },
     {
       url: "/images/product6.jpg",
       name: "Sunglasses",
       price: 25,
       isincart: cartItems.includes(6),
-      togglecart: () => carthandler(6),
+      togglecart: () => carthandlerAlternative(6),
     },
     {
       url: "/images/product7.jpg",
       name: "Watch",
       price: 20,
       isincart: cartItems.includes(7),
-      togglecart: () => carthandler(7),
+      togglecart: () => carthandlerAlternative(7),
     },
     {
       url: "/images/product8.jpg",
       name: "Backpack",
       price: 40,
       isincart: cartItems.includes(8),
-      togglecart: () => carthandler(8),
+      togglecart: () => carthandlerAlternative(8),
     },
   ];
 
   const viewhandler = () => {
     setIndex(prev => prev === 4 ? 8 : 4);
   };
-
 
   return (
     <div className={styles.container}>
@@ -132,7 +158,7 @@ export default function Itemshandler() {
         {/* Buy Pack Button - Bottom Right */}
         <button 
           className={styles.packhandlerbtn}
-          onClick={()=>routes.push('/Subscribe')}
+          onClick={()=>routes.push('/Premnuim')}
         >
           Get Premium Bundle
         </button>

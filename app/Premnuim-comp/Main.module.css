@@ -1,0 +1,179 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--bg);
+  transition: background-color 0.3s ease;
+}
+
+.direct {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 2rem;
+  text-align: center;
+}
+
+.type {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.bigbutton {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 1.25rem 2.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  min-width: 320px;
+  position: relative;
+  overflow: hidden;
+}
+
+.bigbutton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.bigbutton:active {
+  transform: translateY(0);
+}
+
+.bigbutton::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.bigbutton:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+.loading {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--border);
+  border-top: 4px solid var(--primary);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1000;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+.messageContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 1001;
+  padding-top: 2rem;
+}
+
+.fadeIn {
+  animation: fadeIn 0.3s ease;
+}
+
+.fadeOut {
+  animation: fadeOut 0.3s ease;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(40, 40);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .type {
+    font-size: 2rem;
+  }
+  
+  .bigbutton {
+    min-width: 280px;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .direct {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .type {
+    font-size: 1.75rem;
+  }
+  
+  .bigbutton {
+    min-width: 250px;
+    padding: 0.875rem 1.75rem;
+    font-size: 1rem;
+  }
+}
+.subtitle{
+  margin-bottom: 20px;
+}

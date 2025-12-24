@@ -371,3 +371,30 @@
     transform: translateX(-50%) scale(0.98);
   }
 }
+/* styles.module.css */
+.bellContainer {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navIcon {
+  /* your icon styles */
+}
+
+.insidebell {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+}
