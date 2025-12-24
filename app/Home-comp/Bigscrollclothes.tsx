@@ -2,7 +2,7 @@
 import styles from './bigscrollclothes.module.css';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function Bigscrollclothes() {
   const clothes = [

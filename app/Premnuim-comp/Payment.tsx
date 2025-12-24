@@ -92,6 +92,7 @@ export default function Payment({ text, next3, decline }: PaymentProps) {
           <input
             id="cardNumber"
             type="text"
+            minLength={19}
             maxLength={19} // 15 digits + 4 spaces
             placeholder="1234 5678 9012 345"
             value={card}

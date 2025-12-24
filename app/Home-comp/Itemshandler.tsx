@@ -34,22 +34,7 @@ export default function Itemshandler({setQuant}:Itemshandlerprops) {
     },
   ];
  
-  const carthandler = (productId: number) => {
-    setCartItems(prev => {
-      const isInCart = prev.includes(productId);
-      
-      // First update the cart items
-      if (isInCart) {
-        // Update quant AFTER we've determined the new state
-        setTimeout(() => setQuant(prevQuant => prevQuant - 1), 0);
-        return prev.filter(id => id !== productId);
-      } else {
-        // Update quant AFTER we've determined the new state
-        setTimeout(() => setQuant(prevQuant => prevQuant + 1), 0);
-        return [...prev, productId];
-      }
-    });
-  };
+
 
   // BETTER ALTERNATIVE: Update both states separately
   const carthandlerAlternative = (productId: number) => {
