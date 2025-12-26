@@ -17,19 +17,19 @@ export default function Itemshandler({setQuant}:Itemshandlerprops) {
     {
       title: 'Starter Pack',
       description: 'Perfect pack to get you started with the basics.',
-      link: '/packs/starter',
+      link: '/pack/1.png',
       price: 19.99,
     },
     {
       title: 'Pro Pack',
       description: 'Advanced features and premium content included.',
-      link: '/packs/pro',
+      link: '/pack/2.png',
       price: 49.99,
     },
     {
       title: 'Ultimate Pack',
       description: 'Everything you need for maximum performance.',
-      link: '/packs/ultimate',
+      link: '/pack/3.png',
       price: 39.99,
     },
   ];
@@ -51,59 +51,58 @@ export default function Itemshandler({setQuant}:Itemshandlerprops) {
     }
   };
 
-  // Use the alternative version which is cleaner
   const productsitems: ProductPropsType[] = [
     {
-      url: "/images/product1.jpg",
+      url: "/items/1.jpg",
       name: "Leather Jacket",
       price: 50,
       isincart: cartItems.includes(1),
       togglecart: () => carthandlerAlternative(1),
     },
     {
-      url: "/images/product2.jpg",
+      url: "/items/2.jpg",
       name: "Sneakers",
       price: 80,
       isincart: cartItems.includes(2),
       togglecart: () => carthandlerAlternative(2),
     },
     {
-      url: "/images/product3.jpg",
+      url: "/items/3.jpg",
       name: "Jeans",
       price: 90,
       isincart: cartItems.includes(3),
       togglecart: () => carthandlerAlternative(3),
     },
     {
-      url: "/images/product4.jpg",
+      url: "/items/4.jpg",
       name: "T-Shirt",
       price: 35,
       isincart: cartItems.includes(4),
       togglecart: () => carthandlerAlternative(4),
     },
     {
-      url: "/images/product5.jpg",
+      url: "/items/5.jpg",
       name: "Hat",
       price: 10,
       isincart: cartItems.includes(5),
       togglecart: () => carthandlerAlternative(5),
     },
     {
-      url: "/images/product6.jpg",
+      url: "/items/6.png",
       name: "Sunglasses",
       price: 25,
       isincart: cartItems.includes(6),
       togglecart: () => carthandlerAlternative(6),
     },
     {
-      url: "/images/product7.jpg",
+      url: "/items/7.png",
       name: "Watch",
       price: 20,
       isincart: cartItems.includes(7),
       togglecart: () => carthandlerAlternative(7),
     },
     {
-      url: "/images/product8.jpg",
+      url: "/items/8.png",
       name: "Backpack",
       price: 40,
       isincart: cartItems.includes(8),

@@ -123,7 +123,7 @@ export default function Main() {
                 )}
             </div>
             
-            <About />
+            <About quant={0}/>
             
             <div className={styles.messageContainer}>
                 {goodms && (

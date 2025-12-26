@@ -64,7 +64,7 @@ export default function Helpcenter() {
                     </div>
                 </div>
 
-                <About />
+                <About quant={0}/>
             </div>
 
             {/* Message Notifications */}

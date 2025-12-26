@@ -260,5 +260,161 @@ export const Items: Clothestype[] = [
     },
     disponible: true,
     livrison: false
+  },
+   {
+    title: "Hooded Sweatshirt",
+    description: "Comfortable cotton blend hoodie",
+    price: 49.99,
+    category: "Activewear",
+    url: "/offers/1.jpg",
+    rating: {
+      rate: 4.6,
+      count: 145
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Silk Blouse",
+    description: "Elegant silk blouse for formal occasions",
+    price: 89.99,
+    category: "Tops",
+    url: "/offers/2.jpg",
+    rating: {
+      rate: 4.8,
+      count: 27
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Chino Shorts",
+    description: "Casual summer shorts in multiple colors",
+    price: 39.99,
+    category: "Bottoms",
+    url: "/offers/3.jpg",
+    rating: {
+      rate: 4.3,
+      count: 63
+    },
+    disponible: false,
+    livrison: true
+  },
+  {
+    title: "Winter Parka",
+    description: "Insulated parka for extreme cold weather",
+    price: 299.99,
+    category: "Outerwear",
+    url: "/offers/4.png",
+    rating: {
+      rate: 4.9,
+      count: 18
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Linen Button-Down",
+    description: "Breathable linen shirt for summer",
+    price: 69.99,
+    category: "Tops",
+    url: "/offers/5.jpg",
+    rating: {
+      rate: 4.4,
+      count: 51
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Maxi Skirt",
+    description: "Flowery maxi skirt with elastic waist",
+    price: 55.99,
+    category: "Bottoms",
+    url: "/offers/6.jpg",
+    rating: {
+      rate: 4.5,
+      count: 39
+    },
+    disponible: true,
+    livrison: false
+  },
+  {
+    title: "Running Shoes",
+    description: "Lightweight running shoes with cushioning",
+    price: 129.99,
+    category: "Footwear",
+    url: "/offers/7.jpg",
+    rating: {
+      rate: 4.7,
+      count: 89
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Cashmere Scarf",
+    description: "Luxurious cashmere scarf in various colors",
+    price: 119.99,
+    category: "Accessories",
+    url: "/offers/8.jpg",
+    rating: {
+      rate: 4.9,
+      count: 47
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Puffer Vest",
+    description: "Lightweight insulated vest for layering",
+    price: 79.99,
+    category: "Outerwear",
+    url: "/offers/9.jpg",
+    rating: {
+      rate: 4.3,
+      count: 28
+    },
+    disponible: true,
+    livrison: true
+  },
+  {
+    title: "Evening Gown",
+    description: "Elegant floor-length gown for special events",
+    price: 349.99,
+    category: "Dresses",
+    url: "/items/10.png",
+    rating: {
+      rate: 4.8,
+      count: 12
+    },
+    disponible: true,
+    livrison: false
+  },
+   {
+    title: "Evening Gown",
+    description: "Elegant floor-length gown for special events",
+    price: 349.99,
+    category: "Dresses",
+    url: "/items/2.jpg",
+    rating: {
+      rate: 4.8,
+      count: 12
+    },
+    disponible: true,
+    livrison: false
+  },
+   {
+    title: "Evening Gown",
+    description: "Elegant floor-length gown for special events",
+    price: 349.99,
+    category: "Dresses",
+    url: "/items/3.jpg",
+    rating: {
+      rate: 4.8,
+      count: 12
+    },
+    disponible: true,
+    livrison: false
   }
 ]
