@@ -5,6 +5,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "E-Clothes",
   description: "Created By Hamza Dev",
+  icons:{
+    icon:'/logo.png',
+  }
 };
 
 export default function RootLayout({
