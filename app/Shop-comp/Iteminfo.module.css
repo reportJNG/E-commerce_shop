@@ -1,0 +1,162 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--bg);
+  min-height: 100vh;
+  align-items: center;
+}
+
+/* Left side - Image container */
+.leftedbodyimage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: var(--bg);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+}
+
+.bgfull {
+  object-fit: contain;
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.bgfull:hover {
+  transform: scale(1.05);
+}
+
+/* Right side - Information and actions */
+.rightside {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem;
+  background-color: var(--bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  position: relative;
+}
+
+/* Back button */
+.closebutton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 24px;
+  height: 24px;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.closebutton:hover {
+  color: var(--primary);
+}
+
+/* Product name */
+.nameitem {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin: 0;
+  margin-top: 1rem;
+  line-height: 1.2;
+}
+
+/* Buy button */
+.buy {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 1.25rem 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+  margin-top: 1rem;
+}
+
+.buy:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.3);
+}
+
+.buy:active {
+  transform: translateY(0);
+}
+
+/* Price display styling */
+.buy::before {
+  content: "Buy Now - ";
+  font-weight: 500;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+  
+  .leftedbodyimage {
+    aspect-ratio: 4/3;
+  }
+  
+  .rightside {
+    padding: 1.5rem;
+  }
+  
+  .nameitem {
+    font-size: 2rem;
+    margin-top: 0.5rem;
+  }
+  
+  .buy {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Dark theme adjustments */
+:global([data-theme="dark"]) .leftedbodyimage,
+:global([data-theme="dark"]) .rightside {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .buy {
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+:global([data-theme="dark"]) .buy:hover {
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+/* Animation for page load */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.rightside {
+  animation: fadeIn 0.5s ease-out 0.1s backwards;
+}

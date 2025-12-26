@@ -1,0 +1,119 @@
+/* Main.module.css */
+
+/* Main container that holds all components */
+.container {
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--secondary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Centered container for the Itemlist */
+.centered {
+  flex: 1;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+/* Optional: Add some decorative elements or gradients */
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.1) 0%,
+    transparent 100%
+  );
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Theme-specific adjustments */
+:root[data-theme="light"] .container {
+  /* Light theme specific styles */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.9) 0%,
+    var(--bg) 100%
+  );
+}
+
+:root[data-theme="dark"] .container {
+  /* Dark theme specific styles */
+  background-image: linear-gradient(
+    to bottom,
+    rgba(23, 23, 23, 0.9) 0%,
+    var(--bg) 100%
+  );
+}
+
+:root[data-theme="dark"] .container::before {
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 0.15) 0%,
+    transparent 100%
+  );
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .centered {
+    padding: 1.5rem 1rem;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .centered {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .centered {
+    padding: 0.75rem;
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Optional: Add a subtle border or shadow to sections */
+.container > *:not(:last-child) {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Remove border from the last element to avoid double borders */
+.container > *:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+/* Header specific spacing (adjust based on your Header component) */
+.container > :first-child {
+  margin-bottom: 1rem;
+}
+
+/* Textchange component spacing */
+.container > :nth-child(2) {
+  margin-bottom: 3rem;
+}
+
+/* About component spacing */
+.container > :last-child {
+  margin-top: auto;
+
+}
