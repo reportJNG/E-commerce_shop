@@ -1,0 +1,262 @@
+@import url('https://cdn-uicons.flaticon.com/3.0.0/uicons-thin-rounded/css/uicons-thin-rounded.css');
+/* Item.module.css */
+.container {
+    --card-padding: 1rem;
+    --card-radius: 12px;
+    --image-height: 200px;
+    --transition-speed: 200ms;
+    
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    transition: all var(--transition-speed) ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.container:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+/* Image Section */
+.imageContainer {
+    position: relative;
+    width: 100%;
+    height: var(--image-height);
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+    overflow: hidden;
+}
+
+.image {
+    object-fit: cover;
+    transition: transform var(--transition-speed) ease;
+}
+
+.container:hover .image {
+    transform: scale(1.05);
+}
+
+/* Badges */
+.priceBadge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--primary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    z-index: 2;
+}
+
+.categoryBadge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background-color: var(--bg);
+    border: 1px solid var(--border);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.categoryIcon {
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.ratingBadge {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid var(--border);
+    padding: 4px 8px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    z-index: 2;
+}
+
+.ratingBadge i {
+    color: #fbbf24;
+    font-size: 0.8rem;
+}
+
+/* Content Section */
+.content {
+    padding: var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 0.75rem;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--secondary);
+    margin: 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.description {
+    color: var(--secondary);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Features */
+.features {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.delivery {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.delivery i {
+    font-size: 0.9rem;
+}
+
+/* Action Buttons */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+
+.viewButton {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.viewButton:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+}
+
+.viewButton:active {
+    transform: translateY(0);
+}
+
+.giftButton {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background-color: var(--bg);
+    color: var(--secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-speed) ease;
+}
+
+.giftButton:hover {
+    background-color: var(--primary);
+    color: white;
+    border-color: var(--primary);
+}
+
+.giftButton i {
+    font-size: 1.1rem;
+}
+
+/* Dark theme specific adjustments */
+:root[data-theme="dark"] .container {
+    background-color: var(--bg);
+    border-color: var(--border);
+}
+
+:root[data-theme="dark"] .imageContainer {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+}
+
+:root[data-theme="dark"] .ratingBadge {
+    background-color: rgba(23, 23, 23, 0.95);
+}
+
+:root[data-theme="dark"] .giftButton:hover {
+    background-color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        --image-height: 180px;
+        --card-padding: 0.875rem;
+        max-width: 280px;
+    }
+    
+    .title {
+        font-size: 1rem;
+    }
+    
+    .viewButton {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .giftButton {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        --image-height: 160px;
+        max-width: 100%;
+    }
+}
