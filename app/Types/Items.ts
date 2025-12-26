@@ -132,7 +132,7 @@ export const Items: Clothestype[] = [
     livrison: false
   },
   {
-    title: "Hooded Sweatshirt",
+    title: "Cotton Hooded Sweatshirt",
     description: "Comfortable cotton blend hoodie",
     price: 49.99,
     category: "Activewear",
@@ -145,7 +145,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Silk Blouse",
+    title: "Elegant Silk Blouse",
     description: "Elegant silk blouse for formal occasions",
     price: 89.99,
     category: "Tops",
@@ -158,7 +158,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Chino Shorts",
+    title: "Casual Chino Shorts",
     description: "Casual summer shorts in multiple colors",
     price: 39.99,
     category: "Bottoms",
@@ -171,7 +171,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Winter Parka",
+    title: "Insulated Winter Parka",
     description: "Insulated parka for extreme cold weather",
     price: 299.99,
     category: "Outerwear",
@@ -184,7 +184,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Linen Button-Down",
+    title: "Breathable Linen Shirt",
     description: "Breathable linen shirt for summer",
     price: 69.99,
     category: "Tops",
@@ -197,7 +197,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Maxi Skirt",
+    title: "Floral Maxi Skirt",
     description: "Flowery maxi skirt with elastic waist",
     price: 55.99,
     category: "Bottoms",
@@ -210,7 +210,7 @@ export const Items: Clothestype[] = [
     livrison: false
   },
   {
-    title: "Running Shoes",
+    title: "Lightweight Running Shoes",
     description: "Lightweight running shoes with cushioning",
     price: 129.99,
     category: "Footwear",
@@ -223,7 +223,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Cashmere Scarf",
+    title: "Luxurious Cashmere Scarf",
     description: "Luxurious cashmere scarf in various colors",
     price: 119.99,
     category: "Accessories",
@@ -236,7 +236,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Puffer Vest",
+    title: "Lightweight Puffer Vest",
     description: "Lightweight insulated vest for layering",
     price: 79.99,
     category: "Outerwear",
@@ -249,7 +249,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Evening Gown",
+    title: "Elegant Evening Gown",
     description: "Elegant floor-length gown for special events",
     price: 349.99,
     category: "Dresses",
@@ -262,7 +262,7 @@ export const Items: Clothestype[] = [
     livrison: false
   },
    {
-    title: "Hooded Sweatshirt",
+    title: "Premium Hoodie Collection",
     description: "Comfortable cotton blend hoodie",
     price: 49.99,
     category: "Activewear",
@@ -275,7 +275,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Silk Blouse",
+    title: "Formal Silk Blouse",
     description: "Elegant silk blouse for formal occasions",
     price: 89.99,
     category: "Tops",
@@ -288,7 +288,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Chino Shorts",
+    title: "Summer Chino Shorts",
     description: "Casual summer shorts in multiple colors",
     price: 39.99,
     category: "Bottoms",
@@ -301,7 +301,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Winter Parka",
+    title: "Extreme Cold Parka",
     description: "Insulated parka for extreme cold weather",
     price: 299.99,
     category: "Outerwear",
@@ -314,7 +314,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Linen Button-Down",
+    title: "Summer Linen Shirt",
     description: "Breathable linen shirt for summer",
     price: 69.99,
     category: "Tops",
@@ -327,7 +327,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Maxi Skirt",
+    title: "Elastic Waist Maxi Skirt",
     description: "Flowery maxi skirt with elastic waist",
     price: 55.99,
     category: "Bottoms",
@@ -340,7 +340,7 @@ export const Items: Clothestype[] = [
     livrison: false
   },
   {
-    title: "Running Shoes",
+    title: "Cushioned Running Shoes",
     description: "Lightweight running shoes with cushioning",
     price: 129.99,
     category: "Footwear",
@@ -353,7 +353,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Cashmere Scarf",
+    title: "Multi-color Cashmere Scarf",
     description: "Luxurious cashmere scarf in various colors",
     price: 119.99,
     category: "Accessories",
@@ -366,7 +366,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Puffer Vest",
+    title: "Insulated Layering Vest",
     description: "Lightweight insulated vest for layering",
     price: 79.99,
     category: "Outerwear",
@@ -379,7 +379,7 @@ export const Items: Clothestype[] = [
     livrison: true
   },
   {
-    title: "Evening Gown",
+    title: "Floor-length Evening Gown",
     description: "Elegant floor-length gown for special events",
     price: 349.99,
     category: "Dresses",
@@ -392,7 +392,7 @@ export const Items: Clothestype[] = [
     livrison: false
   },
    {
-    title: "Evening Gown",
+    title: "Special Event Gown",
     description: "Elegant floor-length gown for special events",
     price: 349.99,
     category: "Dresses",
@@ -405,7 +405,7 @@ export const Items: Clothestype[] = [
     livrison: false
   },
    {
-    title: "Evening Gown",
+    title: "Formal Occasion Gown",
     description: "Elegant floor-length gown for special events",
     price: 349.99,
     category: "Dresses",

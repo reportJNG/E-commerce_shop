@@ -1,3 +1,4 @@
+'use client'
 import Main from "../Shop-comp/Main"
 export default function PageMain(){
   return(

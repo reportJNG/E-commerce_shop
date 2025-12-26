@@ -1,3 +1,4 @@
+'use client';
 import styles from './Item.module.css';
 import Image from 'next/image';
 import { Clothestype } from '../Types/Clothesitems';
@@ -8,14 +9,23 @@ interface itemprops {
 }
 
 export default function Item({ itm }: itemprops) {
-    const routes = useRouter();
-    
+    const router = useRouter();
+    const params = new URLSearchParams();
     const gotoitem = () => {
-        routes.push(`/Shop/${itm.title}`);
+        params.set('price', itm.price.toString());
+        params.set('link', encodeURIComponent(itm.url.toString()));
+        params.set('check','false');
+        const url = `/Shop/${encodeURIComponent(itm.title)}?${params.toString()}`;
+        router.push(url);
     }
+
     
     const gift = () => {
-        routes.push(`/Shop/Gift/${itm.title}`);
+        params.set('price', itm.price.toString());
+        params.set('link', encodeURIComponent(itm.url.toString()));
+        params.set('check','true');
+        const url = `/Shop/${encodeURIComponent(itm.title)}?${params.toString()}`;
+        router.push(url);
     }
 
     return (
