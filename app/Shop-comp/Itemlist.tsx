@@ -1,7 +1,7 @@
 import styles from './Itemlist.module.css';
 import Item from './Item';
 import { Items } from '../Types/Items';
-
+//all item will be listed here all direct to gift or prushes
 export default function Itemlist(){
 
     return(
